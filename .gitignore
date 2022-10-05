@@ -1,0 +1,39 @@
+# Python things to ignore
+build/
+dist/
+*.egg-info/
+*.egg
+*.py[cod]
+__pycache__/
+
+# Others
+*.so
+
+# tmp files
+*~
+\#*\#
+.\#*
+
+# PySide2 resource files (handled by git lfs)
+#rc_*.py
+
+# Custom folders
+tmp/
+old/
+attic/
+data/*
+
+# Binaries
+*.hdf5
+*.h5
+*.nc
+
+# Shapefiles
+*.dbf
+*.sbn
+*.sbx
+*.shp
+*.shx
+
+# Archives
+*.zip
