@@ -14,7 +14,8 @@ This work is part of the `GlobalMass project <https://www.globalmass.eu/>`_.
 
 -------------------
 
-.. image:: https://github.com/yannziegler/Pygoda/blob/master/pygoda/data/pygoda.png
+.. image:: https://github.com/yannziegler/Pygoda/raw/master/pygoda/data/pygoda.png
+    :alt: Pygoda screenshot
 
 Tasty Features
 --------------

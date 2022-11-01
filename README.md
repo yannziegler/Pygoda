@@ -31,7 +31,11 @@ Some examples of such geolocated data sets include:
 - air pollution data in cities,
 - ...and really any georeferenced time series with any number of components.
 
-## License
+## Documentation
+
+Be sure to check [Pygoda's documentation](https://pygoda.readthedocs.io/en/latest/) for any question.
+
+## Licence
 
 This software is licensed under the [EUPL](LICENSE.md).
 
