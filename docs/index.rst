@@ -1,4 +1,6 @@
-Pygoda: geolocated time series visualisation
+Pygoda
+======
+*The Swiss Army Knife of Geolocated Time Series Visualisation*
 
 Release v\ |version|. (:ref:`Installation <install>`)
 
@@ -13,6 +15,13 @@ Developed and maintained by Yann Ziegler @ `University of Bristol <https://www.b
 This work is part of the `GlobalMass project <https://www.globalmass.eu/>`_.
 
 -------------------
+
+Pygoda is a standalone tool to visualise efficiently a large number of time series observed, recorded or computed at different locations on the Earth.
+
+Thus, _Pygoda_ means any of the following, depending on your preference:
+- **PY**thon for **G**e**O**reference**D** time series visualisation and **A**nalysis, or
+- **Py**thon for **G**e**O**located **D**ata **A**nalysis, or my personal favourite
+- **Py**thon for **G**e**O**located time series **D**i**A**gnosis
 
 .. image:: https://github.com/yannziegler/Pygoda/raw/master/pygoda/data/pygoda.png
     :alt: Pygoda screenshot
@@ -32,7 +41,7 @@ Tasty Features
 - Online map layers
 - Customisable theme
 
-A (roughly) exhaustive list of features is available `here <https://github.com/yannziegler/Pygoda/blob/master/docs/info/features.rst>`
+A (roughly) exhaustive :ref:`list of features <features>` is available.
 
 User Guide
 ----------

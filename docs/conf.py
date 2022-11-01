@@ -1,12 +1,14 @@
 # Configuration file for the Sphinx documentation builder.
 
+# import pygoda
+
 # -- Project information
 project = 'Pygoda'
-copyright = '2022, Yann Ziegler'
+copyright = 'MMXXII, <a href="https://yannziegler.com">Yann Ziegler</a>'
 author = 'Yann Ziegler'
 
-release = '0.1'
-version = '0.1.0'
+release = '0.1' # pygoda.__version__
+version = '0.1.0' # pygoda.__version__
 
 # -- General configuration
 

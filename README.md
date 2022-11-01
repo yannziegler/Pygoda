@@ -33,7 +33,7 @@ Some examples of such geolocated data sets include:
 
 ## Documentation
 
-Be sure to check [Pygoda's documentation](https://pygoda.readthedocs.io/en/latest/) for any question.
+Be sure to check [Pygoda's documentation](https://pygoda.readthedocs.io/en/latest/).
 
 ## Licence
 
