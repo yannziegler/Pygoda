@@ -8,23 +8,22 @@ Release v\ |version|. (:ref:`Installation <install>`)
     :target: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
     :alt: EUPL-v1.2 Licence Badge
 
-A Python GUI to visualise and analyse efficiently large sets of geolocated time series.
+Pygoda is a Python GUI to visualise and analyse efficiently large sets of geolocated time series observed, recorded or computed at different locations on the Earth.
 
-Developed and maintained by Yann Ziegler @ `University of Bristol <https://www.bristol.ac.uk/>`_ (UK), `School of Geographical Sciences <https://www.bristol.ac.uk/geography/>`_, `Bristol Glaciology Centre <https://www.bristol.ac.uk/geography/research/bgc/>`_
+It is developed and maintained by Yann Ziegler @ `University of Bristol <https://www.bristol.ac.uk/>`_ (UK), `School of Geographical Sciences <https://www.bristol.ac.uk/geography/>`_, `Bristol Glaciology Centre <https://www.bristol.ac.uk/geography/research/bgc/>`_
 
 This work is part of the `GlobalMass project <https://www.globalmass.eu/>`_.
 
 -------------------
 
-Pygoda is a standalone tool to visualise efficiently a large number of time series observed, recorded or computed at different locations on the Earth.
-
-Thus, _Pygoda_ means any of the following, depending on your preference:
-- **PY**thon for **G**e**O**reference**D** time series visualisation and **A**nalysis, or
-- **Py**thon for **G**e**O**located **D**ata **A**nalysis, or my personal favourite
-- **Py**thon for **G**e**O**located time series **D**i**A**gnosis
-
 .. image:: https://github.com/yannziegler/Pygoda/raw/master/pygoda/data/pygoda.png
     :alt: Pygoda screenshot
+
+*Pygoda* means any of the following, depending on your preference:
+
+- PYthon for GeOreferenceD time series visualisation and Analysis, or
+- PYthon for GeOlocated Data Analysis, or my personal favourite
+- PYthon for GeOlocated time series DiAgnosis
 
 Tasty Features
 --------------
