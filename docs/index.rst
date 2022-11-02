@@ -30,6 +30,7 @@ Tasty Features
 
 - Spatio-temporal visualisation
 - Visualise tens of time series at once
+- Optimised modal GUI
 - Load many data format
 - Extract or compute time series features
 - Fit standard models
@@ -64,6 +65,19 @@ General Information
    info/limitations
    info/roadmap
    info/history
+   info/media
+
+Scientific Background
+---------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   sci/manuscript
+   sci/talkposters
+   sci/inthewild
+   sci/theory
+   sci/howtocite
 
 API (for contributors only)
 ---------------------------
