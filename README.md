@@ -6,7 +6,7 @@ Developed and maintained by Yann Ziegler @ [University of Bristol](https://www.b
 
 This work is part of the [GlobalMass](https://www.globalmass.eu/) project.
 
-> ✨ **Stay tuned!** Pygoda is being tested at the University of Bristol and should be ready for public release in **October/November 2022**. Please _watch_ this GitHub repository (top right button) to get a notification when Pygoda is available.
+> ✨ **Stay tuned!** Pygoda is being tested at the University of Bristol and should be ready for public release in **February/March 2023**. Please _watch_ this GitHub repository (top right button) to get a notification when Pygoda is available.
 
 ![Pygoda screenshot](pygoda/data/pygoda.png)
 
