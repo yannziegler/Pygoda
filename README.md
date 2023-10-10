@@ -35,6 +35,21 @@ Some examples of such geolocated data sets include:
 
 Be sure to check [Pygoda's documentation](https://pygoda.readthedocs.io/en/latest/).
 
+## Known major or annoying bugs
+
+- Sometimes the labels don't close properly on Leaflet map: switch to a different grid page to resolve.
+- When switching to a different group of categories, the update of the markers colour on the Leaflet map may fail: hover the subplots or map to resolve.
+- It is not possible to zoom in past a certain level on Cartopy map with `lcc` projection (the maximum zoom level is hard-coded for now).
+
+## Tools used
+
+- Coding: Emacs with Spacemacs config
+- Python packages: see requirements.txt
+- PySide2 from Qt for the GUI
+- Matplotlib and Cartopy for the default map
+- pyqtgraph for high-speed plotting of the time series
+- Leaflet for the online map
+
 ## Licence
 
 This software is licensed under the [EUPL](LICENSE.md).
