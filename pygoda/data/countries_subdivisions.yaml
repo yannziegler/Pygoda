@@ -1,0 +1,669 @@
+# Country hierarchy for Pygoda - countries subdivisions (small)
+# Data compiled by Yann Ziegler - last update 2022-08-16
+
+# DISCLAIMER: the content of this file may or may not reflect the political
+# world view of its author(s). It is built with practical purpose in mind, its
+# goal being to offer a convenient basis for geographical data selection and
+# visualisation. Feel free to modify it to suit your need.
+
+# This file must be used with [countries.yaml]. See the header of the latter
+# for a detailed explanation of the content of these files.
+
+# Here, we define the main administrative subdivisions of all countries and
+# dependencies listed in [countries.yaml], including disputed subdivisions.
+
+# File (YAML) syntax:
+# ------------------
+# Territory name:
+#  fullname: ...
+#  parent: immediate parent ISO code/name
+#  subdivisions:
+#    - first subdivision name
+#    - second ...
+#  world_region: only if different from parent
+
+
+###  -------------------- LEVEL 1: 2 disputed subdivision -------------------
+
+# CYP
+
+# Unoccupied/UN-recognized Cyprus
+Cyprus:
+  fullname: Republic of Cyprus (southern)
+  wikidata: ~Q229 # is for entire island, WKT downloaded manually (id:2514541)
+  parent: CYP
+  subdivisions:
+
+# Turkish Republic of Northern Cyprus
+Northern Cyprus:
+  fullname: Northern Cyprus
+  wikidata: Q23681
+  parent: CYP
+  subdivisions:
+
+# YEM
+
+# Unoccupied/UN-recognized Yemen 
+YEM-mainland:
+  fullname: Mainland Yemen
+  wikidata: #TODO: Q805 includes Socotra
+  parent: YEM
+  subdivisions:
+
+# Socotra Governate
+Socotra Governate:
+  fullname: Socotra Governate
+  wikidata: Q2860218 # archipelago, Q15728745: Socotra Governate
+  parent: YEM
+  subdivisions:
+
+
+###  ------------------------ LEVEL 1: 4 buffer zones -----------------------
+
+# CYP
+
+UNBF in CYP:
+  fullname: UN Buffer Zone in Cyprus
+  wikidata: Q116970
+  parent: Buffers # CYP
+
+# SYR
+
+UNDOF:
+  fullname: UNDOF Zone in Syria
+  wikidata: Q1428532
+  parent: Buffers # SYR
+
+# KOR and PRK
+
+# The DMZ is split between N. and S. on OSM but there is a single Wikidata ID.
+# North/South sides are included in North/South Korea polygon respectively.
+# Two WKT files are provided anyway, in case it is useful for someone...
+North Korea DMZ:
+  fullname: North Korea DMZ
+  wikidata: ~Q331990 # WKT downloaded manually
+  parent: Buffers # PRK
+
+South Korea DMZ:
+  fullname: South Korea DMZ
+  wikidata: ~Q331990 # WKT downloaded manually
+  parent: Buffers # KOR
+
+
+### ----------------------- LEVEL 1: main subdivisions -----------------------
+
+# MODEL TO COPY/PASTE
+# :
+#   fullname: 
+#   wikidata: 
+#   parent: 
+#   subdivisions:
+
+# BIH
+
+Federation of Bosnia and Herzegovina:
+  fullname: Federation of Bosnia and Herzegovina
+  wikidata: Q11198
+  parent: BIH
+  subdivisions:
+
+Republica Srpska:
+  fullname: Republica Srpska
+  wikidata: Q11196
+  parent: BIH
+  subdivisions:
+
+Brcko District:
+  fullname: Brčko District
+  wikidata: Q194483
+  parent: BIH
+  subdivisions:
+
+# FRA
+
+Auvergne-Rhone-Alpes:
+  fullname: Auvergne-Rhône-Alpes
+  wikidata: Q18338206
+  parent: FRA
+  subdivisions:
+
+Bourgogne-Franche-Comte:
+  fullname: Bourgogne-Franche-Comté
+  wikidata: Q18578267
+  parent: FRA
+  subdivisions:
+
+Bretagne:
+  fullname: Bretagne
+  wikidata: Q12130
+  parent: FRA
+  subdivisions:
+
+Centre-Val de Loire:
+  fullname: Centre-Val de Loire
+  wikidata: Q13947
+  parent: FRA
+  subdivisions:
+
+Corse:
+  fullname: Corse
+  wikidata: Q14112
+  parent: FRA
+  subdivisions:
+
+Grand Est:
+  fullname: Grand Est
+  wikidata: Q18677983
+  parent: FRA
+  subdivisions:
+
+Hauts-de-France:
+  fullname: Hauts-de-France
+  wikidata: Q18677767
+  parent: FRA
+  subdivisions:
+
+Ile-de-France:
+  fullname: Île-de-France
+  wikidata: Q13917
+  parent: FRA
+  subdivisions:
+
+Normandie:
+  fullname: Normandie
+  wikidata: Q18677875
+  parent: FRA
+  subdivisions:
+
+Nouvelle-Aquitaine:
+  fullname: Nouvelle-Aquitaine
+  wikidata: Q18678082
+  parent: FRA
+  subdivisions:
+
+Occitanie:
+  fullname: Occitanie
+  wikidata: Q18678265
+  parent: FRA
+  subdivisions:
+
+Pays de la Loire:
+  fullname: Pays de la Loire
+  wikidata: Q16994
+  parent: FRA
+  subdivisions:
+
+Provence-Alpes-Cote d'Azur:
+  fullname: Provence-Alpes-Côte d'Azur
+  wikidata: Q15104
+  parent: FRA
+  subdivisions:
+
+# GBR
+
+ENG:
+  fullname: England
+  wikidata: Q21
+  parent: GBR
+  subdivisions:
+
+WLS:
+  fullname: Wales
+  wikidata: Q25
+  parent: GBR
+  subdivisions:
+
+SCT:
+  fullname: Scotland
+  wikidata: Q22
+  parent: GBR
+  subdivisions:
+
+NIR:
+  fullname: Northern Ireland
+  wikidata: Q26
+  parent: GBR
+  subdivisions:
+
+# IRQ
+
+Kurdistan Region:
+  fullname: Kurdistan Region
+  wikidata: Q205047
+  parent: IRQ
+  subdivisions:
+
+# USA
+
+Alabama:
+  fullname: Alabama
+  wikidata: Q173
+  parent: USA
+  subdivisions:
+
+Alaska:
+  fullname: Alaska
+  wikidata: Q797
+  parent: USA
+  subdivisions:
+
+Arizona:
+  fullname: Arizona
+  wikidata: Q816
+  parent: USA
+  subdivisions:
+
+Arkansas:
+  fullname: Arkansas
+  wikidata: Q1612
+  parent: USA
+  subdivisions:
+
+California:
+  fullname: California
+  wikidata: Q99
+  parent: USA
+  subdivisions:
+
+Colorado:
+  fullname: Colorado
+  wikidata: Q1261
+  parent: USA
+  subdivisions:
+
+Connecticut:
+  fullname: Connecticut
+  wikidata: Q779
+  parent: USA
+  subdivisions:
+
+Delaware:
+  fullname: Delaware
+  wikidata: Q1393
+  parent: USA
+  subdivisions:
+
+Florida:
+  fullname: Florida
+  wikidata: Q812
+  parent: USA
+  subdivisions:
+
+Georgia:
+  fullname: Georgia
+  wikidata: Q1428
+  parent: USA
+  subdivisions:
+
+Hawaii:
+  fullname: Hawaii
+  wikidata: Q782
+  parent: USA
+  subdivisions:
+
+Idaho:
+  fullname: Idaho
+  wikidata: Q1221
+  parent: USA
+  subdivisions:
+
+Illinois:
+  fullname: Illinois
+  wikidata: Q1204
+  parent: USA
+  subdivisions:
+
+Indiana:
+  fullname: Indiana
+  wikidata: Q1415
+  parent: USA
+  subdivisions:
+
+Iowa:
+  fullname: Iowa
+  wikidata: Q1546
+  parent: USA
+  subdivisions:
+
+Kansas:
+  fullname: Kansas
+  wikidata: Q1558
+  parent: USA
+  subdivisions:
+
+Kentucky:
+  fullname: Kentucky
+  wikidata: Q1603
+  parent: USA
+  subdivisions:
+
+Louisiana:
+  fullname: Louisiana
+  wikidata: Q1588
+  parent: USA
+  subdivisions:
+
+Maine:
+  fullname: Maine
+  wikidata: Q724
+  parent: USA
+  subdivisions:
+
+Maryland:
+  fullname: Maryland
+  wikidata: Q1391
+  parent: USA
+  subdivisions:
+
+Massachusetts:
+  fullname: Massachusetts
+  wikidata: Q771
+  parent: USA
+  subdivisions:
+
+Michigan:
+  fullname: Michigan
+  wikidata: Q1166
+  parent: USA
+  subdivisions:
+
+Minnesota:
+  fullname: Minnesota
+  wikidata: Q1527
+  parent: USA
+  subdivisions:
+
+Mississippi:
+  fullname: Mississippi
+  wikidata: Q1494
+  parent: USA
+  subdivisions:
+
+Missouri:
+  fullname: Missouri
+  wikidata: Q1581
+  parent: USA
+  subdivisions:
+
+Montana:
+  fullname: Montana
+  wikidata: Q1212
+  parent: USA
+  subdivisions:
+
+Nebraska:
+  fullname: Nebraska
+  wikidata: Q1553
+  parent: USA
+  subdivisions:
+
+Nevada:
+  fullname: Nevada
+  wikidata: Q1227
+  parent: USA
+  subdivisions:
+
+New Hampshire:
+  fullname: New Hampshire
+  wikidata: Q759
+  parent: USA
+  subdivisions:
+
+New Jersey:
+  fullname: New Jersey
+  wikidata: Q1408
+  parent: USA
+  subdivisions:
+
+New Mexico:
+  fullname: New Mexico
+  wikidata: Q1522
+  parent: USA
+  subdivisions:
+
+New York:
+  fullname: New York
+  wikidata: Q1384
+  parent: USA
+  subdivisions:
+
+North Carolina:
+  fullname: North Carolina
+  wikidata: Q1454
+  parent: USA
+  subdivisions:
+
+North Dakota:
+  fullname: North Dakota
+  wikidata: Q1207
+  parent: USA
+  subdivisions:
+
+Ohio:
+  fullname: Ohio
+  wikidata: Q1397
+  parent: USA
+  subdivisions:
+
+Oklahoma:
+  fullname: Oklahoma
+  wikidata: Q1649
+  parent: USA
+  subdivisions:
+
+Oregon:
+  fullname: Oregon
+  wikidata: Q824
+  parent: USA
+  subdivisions:
+
+Pennsylvania:
+  fullname: Pennsylvania
+  wikidata: Q1400
+  parent: USA
+  subdivisions:
+
+Rhode Island:
+  fullname: Rhode Island
+  wikidata: Q1387
+  parent: USA
+  subdivisions:
+
+South Carolina:
+  fullname: South Carolina
+  wikidata: Q1456
+  parent: USA
+  subdivisions:
+
+South Dakota:
+  fullname: South Dakota
+  wikidata: Q1211
+  parent: USA
+  subdivisions:
+
+Tennessee:
+  fullname: Tennessee
+  wikidata: Q1509
+  parent: USA
+  subdivisions:
+
+Texas:
+  fullname: Texas
+  wikidata: Q1439
+  parent: USA
+  subdivisions:
+
+Utah:
+  fullname: Utah
+  wikidata: Q829
+  parent: USA
+  subdivisions:
+
+Vermont:
+  fullname: Vermont
+  wikidata: Q16551
+  parent: USA
+  subdivisions:
+
+Virginia:
+  fullname: Virginia
+  wikidata: Q1370
+  parent: USA
+  subdivisions:
+
+Washington:
+  fullname: Washington
+  wikidata: Q1223
+  parent: USA
+  subdivisions:
+
+West Virginia:
+  fullname: West Virginia
+  wikidata: Q1371
+  parent: USA
+  subdivisions:
+
+Wisconsin:
+  fullname: Wisconsin
+  wikidata: Q1537
+  parent: USA
+  subdivisions:
+
+Wyoming:
+  fullname: Wyoming
+  wikidata: Q1214
+  parent: USA
+  subdivisions:
+
+# STP
+
+Sao Tome:
+  fullname: São Tomé
+  wikidata: Q6710363
+  parent: STP
+  subdivisions:
+
+Principe: # autonomous region
+  fullname: Principe
+  wikidata: Q2366966
+  parent: STP
+  subdivisions:
+
+# TTO
+
+Trinidad:
+  fullname: Trinidad
+  wikidata: Q128323
+  parent: TTO
+  subdivisions:
+
+Tobago:
+  fullname: Tobago
+  wikidata: Q185111
+  parent: TTO
+  subdivisions:
+
+
+### -------------- LEVEL 2: subdivisions of LEVEL-1 territories --------------
+
+# MODEL TO COPY/PASTE
+# :
+#   fullname: 
+#   wikidata: 
+#   parent: 
+#   subdivisions:
+
+#TODO
+
+
+### -------------- LEVEL 2: subdivisions of LEVEL-1 dependencies --------------
+
+# MODEL TO COPY/PASTE
+# :
+#   fullname: 
+#   wikidata: 
+#   parent: 
+#   subdivisions:
+
+# GBR / GGY 
+
+Guernsey jurisdiction: # not the bailiwick, not the island
+  fullname: Guernsey jurisdiction
+  wikidata: Q12348376
+  parent: GGY
+  subdivisions:
+    - Guernsey # the island
+    - Herm
+    - Jethou
+    - Lihou
+
+Alderney: # both the island and the jurisdiction
+  fullname: Alderney
+  wikidata: Q179313
+  parent: GGY
+  subdivisions:
+
+Sark fief: # not the island
+  fullname: Sark fief
+  wikidata: # No specific Wikidata ID
+  parent: GGY
+  subdivisions:
+    - Sark # the island
+    - Brecqhou
+
+
+### -------------- LEVEL 3: subdivisions of LEVEL-2 dependencies --------------
+
+# MODEL TO COPY/PASTE
+# :
+#   fullname: 
+#   wikidata: 
+#   parent: 
+#   subdivisions:
+
+# GBR / GGY / Guernsey jurisdiction
+
+Guernsey: # The island, not the jurisdiction or the bailiwick
+  fullname: Guernsey
+  wikidata: Q3311985
+  parent: Guernsey jurisdiction
+  subdivisions:
+
+Herm:
+  fullname: Herm
+  wikidata: Q202023
+  parent: Guernsey jurisdiction
+  subdivisions:
+    
+Jethou:
+  fullname: Jethou
+  wikidata: Q898856
+  parent: Guernsey jurisdiction
+
+Lihou:
+  fullname: Lihou
+  wikidata: Q953452
+  parent: Guernsey jurisdiction
+
+# GBR / GGY / Sark fief
+
+Sark:
+  fullname: Sark
+  wikidata: Q3405693
+  parent: Sark fief
+  subdivisions:
+
+Brecqhou:
+  fullname: Brecqhou
+  wikidata: Q904566
+  parent: Sark fief
+  subdivisions:
+
+# ITA / Sicily
+
+# TODO: Sicily, Isole Pelagie, Pantelleria
+
+
+### ------------------- LEVEL n+1: smaller subdivisions ----------------------
+
+# ...further subdivisions are listed in [countries_subdivisions_small.yaml]

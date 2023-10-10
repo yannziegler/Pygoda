@@ -1,0 +1,136 @@
+# Config file for Pygoda
+# ======================
+# DO NOT MODIFY, you can create a custom config in config_user.yaml
+# [!] means: do not modify/overwrite
+# [+] means: may be *extended* or *re-ordered* in config_user.yaml
+# [*] means: may be *completely overwritten* in config_user.yaml
+
+# UPPER CASE: sections names, or constants (*never* modified after startup).
+# lower case: parameters which can be adjusted at runtime.
+
+
+## STATIONS CATEGORIES ##
+
+# [+] Default category group order and names
+# Can be extended and partially modified by the user
+# (order matters for cycling through groups)
+GRP_CATEGORIES:
+  GRP_QUALITY:
+    ID: 1
+    name: 'Quality'
+    cat_reset: CAT_NEUTRAL # fallback category
+    cat_switch: CAT_BAD # default category switch when hitting SPACE key
+  GRP_GENERIC:
+    ID: 2
+    name: 'Generic'
+    cat_switch: CAT_1
+
+# [+] Default category order and names
+# Can be extended and partially modified by the user
+# (order matters for cycling through categories)
+CATEGORIES:
+  GRP_QUALITY:
+    CAT_BAD:
+      ID: -1
+      name: 'bad'
+      key: 'DELETE'
+    CAT_NEUTRAL:
+      ID: 0
+      name: 'neutral'
+      key: '0'
+    CAT_GOOD:
+      ID: 1
+      name: 'good'
+      key: 'ENTER'
+  GRP_GENERIC:
+    CAT_1:
+      ID: 11
+      name: 'A'
+      key: '1'
+    CAT_2:
+      ID: 12
+      name: 'B'
+      key: '2'
+    CAT_3:
+      ID: 13
+      name: 'C'
+      key: '3'
+    CAT_4:
+      ID: 14
+      name: 'D'
+      key: '4'
+    CAT_5:
+      ID: 15
+      name: 'E'
+      key: '5'
+    CAT_6:
+      ID: 16
+      name: 'F'
+      key: '6'
+    CAT_7:
+      ID: 17
+      name: 'G'
+      key: '7'
+    CAT_8:
+      ID: 18
+      name: 'H'
+      key: '8'
+    CAT_9:
+      ID: 19
+      name: 'I'
+      key: '9'
+
+# [!] Hard-coded virtual categories
+CAT_DEFAULT: GRP_QUALITY.CAT_NEUTRAL # default category for stations at startup
+
+# [*] Convenient categories cycling
+cat_shift_left: '+'
+cat_shift_right: '-'
+
+## PERFORMANCES ##
+
+# [*] Data loading and memory
+PERFORMANCES:
+  # Data loading
+  load_nsta: -1 # load this number of stations at startup (-1 == all)
+  load_first_page: True # always load all the data for the first grid page
+  load_on_the_fly: False # load the data only when needed
+  #max_in_memory: -1 # keep no more than this number of stations in memory (-1 == no limit)
+  # Downsampling before plotting
+  # (slightly increases GUI reactivity and decreases memory footprint)
+  downsampling_rate: 1 # n = plot 1/n of the data points
+  downsampling_threshold: 1000 # no subsampling if there are less than n data
+  downsampling_method: naive # only option is 'naive' for now
+  best_quality_on_hover: True # remove downsampling when hovering/selecting
+  keep_best_quality: True # make previous option persistent
+  # Auto-update of large plot
+  largeplot_update_threshold: 50000 # don't auto update large plot if len(data) > threshold
+
+## GRID ##
+
+# [*] Grid geometry and interaction
+GRID:
+  nrows: 9
+  ncols: 5
+  auto_adjust_geometry: True
+  auto_advance: True
+  auto_switch_page: True
+
+## SUBPLOTS ##
+
+# [*] Time series
+SUBPLOT:
+  plot_type: 'scatter' # only option is 'scatter' for now
+
+## LARGE PLOT ##
+
+# [*] Time series (zoom)
+LARGEPLOT:
+  plot_type: 'scatter' # only option is 'scatter' for now
+
+## MAP ##
+
+# [*] Map
+MAP:
+  resolution: '110m'
+  projection: 'carree'

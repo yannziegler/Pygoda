@@ -1,0 +1,26 @@
+A. Setup
+--------
+
+See the main README.md file.
+
+
+B. Download the example data
+----------------------------
+
+Download the example GPS data and put them in the example/DATA/ folder:
+https://u.pcloud.link/publink/show?code=XZoTqNkZuMUSf3Psg2LN5hof30tRAS6xD3gk
+
+
+C. Copy the config files
+------------------------
+
+Put the *content* of the example/CONFIG folder (not the folder itself) in:
+$HOME/.config/pygoda on Linux
+$APPDATA/pygoda on MS Windows (usually C:\Users\$USER\AppData\Roaming\pygoda)
+
+
+D. Start the software
+---------------------
+
+See the last paragraph of the *Installing* section and *Getting Started* in the main README.md file.
+

@@ -1,0 +1,2749 @@
+# Country hierarchy for Pygoda - 0-level countries and 1-level dependencies
+# Data compiled by Yann Ziegler - last update 2022-08-16
+
+# DISCLAIMER: the content of this file may or may not reflect the political
+# world view of its author(s). It is built with practical purpose in mind, its
+# goal being to offer a convenient basis for geographical data selection and
+# visualisation. Feel free to modify it to suit your need.
+
+# The content of this file is freely adapted from these sources:
+# -------------------------------------------------------------
+# PeakBagger (https://peakbagger.com/pbgeog/countries.aspx, March 2020)
+# Wikipedia list of Dependent Territory
+#  (https://en.wikipedia.org/wiki/Dependent_territory, March 2020)
+# Wikipedia list of states with limited recognition
+#  (https://en.wikipedia.org/wiki/List_of_states_with_limited_recognition,
+#   August 2022)
+# Wikidata (https://www.wikidata.org)
+# Wikipedia ISO 3166-1
+#  (https://en.wikipedia.org/wiki/ISO_3166-1, March 2020)
+# Wikipedia ISO 3166-2
+#  (https://en.wikipedia.org/wiki/ISO_3166-2, March 2020)
+#  ...and many other pages.
+# UNSD (https://unstats.un.org/unsd/methodology/m49/, March 2020)
+
+# The world entities hierarchy is:
+# -------------------------------
+# 0-level: 194 recognized, independent Nation-States (193 UN members + Vatican)
+#          + Antarctica
+#          + 6 de facto but disputed: Western Sahara, Northern Cyprus
+#                                     Kosovo, Palestine, Taiwan, Socotra
+#          + 3 buffer zones: Korean DMZ (N/S), Cyprus U.N. Buffer Zone, UNDOF
+# 1-level: 74 dependencies for 17 of the 0-level countries
+#             Changes wrt PeakBagger:
+#             + Åland Islands as dependency of Finland,
+#             + Azores and Madeira as dependency of Portugal,
+#             + Ashmore and Cartier Is. and Coral Sea Islands
+#               as dependencies of Australia,
+#             + Chatham Islands as dependency of New Zealand
+#             + Guantanamo Bay Naval Base as dependency of the USA,
+#             + Baikonur Cosmodrome as dependency of Russia,
+#             + Bougainville as dependency of Papua New Guinea,
+#             + Zanzibar as dependency of Tanzania,
+#             + Akrotiri and Dhekelia Sovereign Bases as dependencies of UK,
+#             + Clipperton Island as dependency of France,
+#             + Ceuta and Melilla as dependencies of Spain,
+#             + Easter I. and Salas y Gomez I. as dependencies of Chile,
+#             + Prince Edward Islands as dependency of South Africa,
+#             - Bonaire, Sint Eustatius and Saba listed as a single
+#               dependency (Caribbean Netherlands) of Netherlands,
+#             - Svalbard and Jan Mayen listed as a single dependency of Norway.
+#          + 1 disputed autonomous region: Iraqi Kurdistan
+# Disputed territories: 8 claimed by several sovereign states
+#                         (Crimea + Siachen Glacier + island territories
+#                          in the Carribean, South China and Japan seas)
+
+# Note: the content of this file should exhaustively cover all the Earth land
+# masses with no overlapping. In practice, however, there might be some
+# overlapping depending on how each territory polygon has been drawn (cf.
+# disputed territories and buffer zones).
+
+# Difference between dependencies and subdivisions:
+# ------------------------------------------------
+# From a practical point of view, subdivisions are automatically included when
+# the sovereign country is selected by the user, whereas dependencies are not.
+# It is impossible to match the expectations of all users as they depend on
+# their home country and political view (see DISCLAIMER). We have tried to find
+# a compromise between usability and international standpoint whenever the
+# status of a territory was ambiguous.
+#
+# Thus, we loosely define a 'subdivision' as a geographical subset of the parent
+# entity (e.g. England for UK, Corsica for France). Autonomous regions which are
+# contiguous or very close to the mainland are usually listed as subdivisions
+# (e.g. Adjara for Georgia) but it is not a strict rule
+# and may change in the future.
+#
+# We define a 'dependency' as an entity which is both at least partly autonomous
+# and geographically distinct from its parent entity; it is usually an island
+# territory (e.g. Isle of Man, la Réunion) but not necessarily (e.g. Hong Kong,
+# Macau). If the territory is notably remote, it is always listed as a
+# dependency. When in doubt, an entity with assigned ISO and M49 codes and/or
+# other specificities (different official language(s) or money, own police force
+# or post service, distinct status in some international organisations, etc.) is
+# listed as a dependency (e.g. Åland Islands for Finland).
+
+# Note 1: 0-level countries have no parent; countries at other levels have
+#         exactly one parent. This is the only way to know the position of
+#         an entity in the hierarchy as some dependencies/subdivisions have
+#         an official ISO code whereas some de facto states don't.
+# Note 2: This is not a rule but as a matter of fact, there are no nested
+#         dependencies, dependencies only have further subdivisions.
+# Note 3: Disputed entities are all 0-level by convention to avoid assigning
+#         an arbitrary parent.
+
+# File (YAML) syntax:
+# ------------------
+# ISO code when available or name:
+#  fullname: ...
+#  wikidata: # (*) Wikidata ID
+#  parent: # immediate parent ISO code/name
+#  dependencies:
+#   # list of ISO codes/names
+#  subdivisions:
+#   # list of ISO codes/names
+#  world_region:
+#   # (**) world region (possibly more precise for lower levels)
+#  unsd_m49:
+#   # hierarchy of M49 UNSD codes from world regions (top) to country (bottom)
+
+# (*) When available, the ID is given for the country WITHOUT its dependencies.
+#     e.g. France is Q212429 (Metropolitan France), not Q142 (French Republic).
+# (**) In this file, world_region only partly follow United Nations geoscheme.
+
+# Example:
+# -------
+# GBR:
+#   fullname: United Kingdom
+#   subdivisions: # Automatically selected
+#     - ENG
+#     - NIR
+#     - SCT
+#     - WLS
+#   dependencies: # To be selected manually when needed
+#     - AIA
+#     - BMU
+#     ...
+#   world_region: Europe
+#   unsd_m49:
+#     - 150 # Europe
+#     - 154 # Northern Europe
+#     - 826 # UK
+
+
+### -------------------------- LEVEL 0: 194 entities --------------------------
+# Countries sorted by ISO 3166-1 alpha-3 code
+
+AFG:
+  fullname: Afghanistan
+  wikidata: Q889
+  subdivisions:
+  dependencies:
+  world_region: 142/034
+  unsd_m49: 004
+
+AGO:
+  fullname: Angola
+  wikidata: Q916
+  subdivisions:
+  dependencies:
+  world_region: 002/202/017
+  unsd_m49: 024
+
+ALB:
+  fullname: Albania
+  wikidata: Q222
+  subdivisions:
+  dependencies:
+  world_region: 150/039
+  unsd_m49: 008
+
+AND:
+  fullname: Andorra
+  wikidata: Q228
+  subdivisions:
+  dependencies:
+  world_region: 150/039
+  unsd_m49: 020
+
+ARE:
+  fullname: United Arab Emirates
+  wikidata: Q878
+  subdivisions:
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 784
+
+ARG:
+  fullname: Argentina
+  wikidata: Q414
+  subdivisions:
+  dependencies:
+  world_region: 019/419/005
+  unsd_m49: 032
+
+ARM:
+  fullname: Armenia
+  wikidata: Q399
+  subdivisions:
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 051
+
+ATA:
+  fullname: Antarctica
+  wikidata: ~Q51 # WKT prepared manually
+  subdivisions:
+  dependencies:
+  world_region: 010
+  unsd_m49: 010
+
+ATG:
+  fullname: Antigua and Barbuda
+  wikidata: Q781
+  geounits:
+    - Antigua
+    - Barbuda
+  dependencies:
+  world_region: 019/419/029
+  unsd_m49: 028
+
+AUS:
+  fullname: Australia
+  wikidata: Q408
+  geounits:
+    - AUS-mainland
+    - Tasmania
+  subdivisions:
+  dependencies:
+    - CXR
+    - CCK
+    # - AU-01 ???
+    - HMD
+    - NFK
+    - Ashmore and Cartier Islands
+    - Coral Sea Islands
+  world_region: 009/053
+  unsd_m49: 036
+
+AUT:
+  fullname: Austria
+  wikidata: Q40
+  subdivisions:
+  dependencies:
+  world_region: 150/155
+  unsd_m49: 040
+
+AZE:
+  fullname: Azerbaijan
+  wikidata: Q227
+  subdivisions:
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 031
+
+BDI:
+  fullname: Burundi
+  wikidata: Q967
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 108
+
+BEL:
+  fullname: Belgium
+  wikidata: Q31
+  subdivisions:
+  dependencies:
+  world_region: 150/155
+  unsd_m49: 056
+
+BEN:
+  fullname: Benin
+  wikidata: Q962
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 204
+
+BFA:
+  fullname: Burkina Faso
+  wikidata: Q965
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 854
+
+BGD:
+  fullname: Bangladesh
+  wikidata: Q902
+  subdivisions:
+  dependencies:
+  world_region: 142/034
+  unsd_m49: 050
+
+BGR:
+  fullname: Bulgaria
+  wikidata: Q219
+  subdivisions:
+  dependencies:
+  world_region: 150/151
+  unsd_m49: 100
+
+BHR:
+  fullname: Bahrain
+  wikidata: Q398
+  subdivisions:
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 048
+
+BHS:
+  fullname: Bahamas
+  wikidata: Q778
+  subdivisions:
+  dependencies:
+  world_region: 019/419/029
+  unsd_m49: 044
+
+BIH:
+  fullname: Bosnia and Herzegovina
+  wikidata: Q225
+  subdivisions:
+    - Federation of Bosnia and Herzegovina
+    - Republica Srpska
+    - Brcko District
+  dependencies:
+  world_region: 150/039
+  unsd_m49: 070
+
+BLR:
+  fullname: Belarus
+  wikidata: Q184
+  subdivisions:
+  dependencies:
+  world_region: 150/151
+  unsd_m49: 112
+
+BLZ:
+  fullname: Belize
+  wikidata: Q242
+  subdivisions:
+  dependencies:
+  world_region: 019/419/013
+  unsd_m49: 084
+
+BOL:
+  fullname: Bolivia
+  wikidata: Q750
+  subdivisions:
+  dependencies:
+  world_region: 019/419/005
+  unsd_m49: 068
+
+BRA:
+  fullname: Brazil
+  wikidata: Q155
+  subdivisions:
+  dependencies:
+  world_region: 019/419/005
+  unsd_m49: 076
+
+BRB:
+  fullname: Barbados
+  wikidata: Q244
+  subdivisions:
+  dependencies:
+  world_region: 019/419/029
+  unsd_m49: 052
+
+BRN:
+  fullname: Brunei
+  wikidata: Q921
+  subdivisions:
+  dependencies:
+  world_region: 142/035
+  unsd_m49: 096
+
+BTN:
+  fullname: Bhutan
+  wikidata: Q917
+  subdivisions:
+  dependencies:
+  world_region: 142/034
+  unsd_m49: 064
+
+
+BWA:
+  fullname: Botswana
+  wikidata: Q963
+  subdivisions:
+  dependencies:
+  world_region: 002/202/018
+  unsd_m49: 078
+
+CAF:
+  fullname: Central African Republic
+  wikidata: Q929
+  subdivisions:
+  dependencies:
+  world_region: 002/202/017
+  unsd_m49: 140
+
+CAN:
+  fullname: Canada
+  wikidata: Q16
+  subdivisions:
+  dependencies:
+  world_region: 019/021
+  unsd_m49: 124
+
+CHE:
+  fullname: Switzerland
+  wikidata: Q39
+  subdivisions:
+  dependencies:
+  world_region: 150/155
+  unsd_m49: 756
+
+CHL:
+  fullname: Chile
+  wikidata: Q298
+  subdivisions:
+  dependencies:
+    - Easter Island
+    - Salas y Gomez
+  world_region: 019/419/005
+  unsd_m49: 152
+
+CHN:
+  fullname: China
+  wikidata: Q148 # OSM polygon excludes TWN
+  subdivisions:
+  dependencies:
+    - HKG
+    - MAC
+  world_region: 142/030
+  unsd_m49: 156
+
+CIV:
+  fullname: "Côte d'Ivoire"
+  wikidata: Q1008
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 384
+
+CMR:
+  fullname: Cameroon
+  wikidata: Q1009
+  subdivisions:
+  dependencies:
+  world_region: 002/202/017
+  unsd_m49: 120
+
+COD:
+  fullname: Congo-Kinshasa
+  wikidata: Q974
+  subdivisions:
+  dependencies:
+  world_region: 002/202/017
+  unsd_m49: 180
+
+COG:
+  fullname: Congo-Brazzaville
+  wikidata: Q971
+  subdivisions:
+  dependencies:
+  world_region: 002/202/017
+  unsd_m49: 178
+
+COL:
+  fullname: Colombia
+  wikidata: Q739
+  subdivisions:
+  dependencies:
+  world_region: 019/419/005
+  unsd_m49: 170
+
+COM:
+  fullname: Comoros
+  wikidata: Q970
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 174
+
+CPV:
+  fullname: Cabo Verde
+  wikidata: Q1011
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 132
+
+CRI:
+  fullname: Costa Rica
+  wikidata: Q800
+  subdivisions:
+  dependencies:
+  world_region: 019/419/013
+  unsd_m49: 188
+
+CUB:
+  fullname: Cuba
+  wikidata: Q241
+  subdivisions:
+  dependencies:
+  world_region: 019/419/029
+  unsd_m49: 192
+
+CYP:
+  fullname: Republic of Cyprus
+  wikidata: Q229 # entire island
+  subdivisions:
+    - Cyprus
+    - Northern Cyprus
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 196
+
+CZE:
+  fullname: Czech Republic
+  wikidata: Q213
+  subdivisions:
+  dependencies:
+  world_region: 150/151
+  unsd_m49: 203
+
+DEU:
+  fullname: Germany
+  wikidata: Q183
+  subdivisions:
+  dependencies:
+  world_region: 150/155
+  unsd_m49: 276
+
+DJI:
+  fullname: Djibouti
+  wikidata: Q977
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 262
+
+DMA:
+  fullname: Dominica
+  wikidata: Q784
+  subdivisions:
+  dependencies:
+  world_region: 019/419/029
+  unsd_m49: 212
+
+DNK:
+  fullname: Denmark
+  wikidata: Q35
+  geounits:
+    # - Jutland
+    # - Fyn
+    # - Sjaelland
+    # - Lolland
+    # - Falster
+    # - Mon
+    # - Bornholm
+  subdivisions:
+  dependencies:
+    - FRO
+    - GRL
+  world_region: 150/154
+  unsd_m49: 208
+
+DOM:
+  fullname: Dominican Republic
+  wikidata: Q786
+  subdivisions:
+  dependencies:
+  world_region: 019/419/029
+  unsd_m49: 214
+
+DZA:
+  fullname: Algeria
+  wikidata: Q262
+  subdivisions:
+  dependencies:
+  world_region: 002/015
+  unsd_m49: 012
+
+ECU:
+  fullname: Ecuador
+  wikidata: Q736
+  geounits:
+    - ECU-mainland
+    - Galapagos Islands
+  subdivisions:
+  dependencies:
+  world_region: 019/419/005
+  unsd_m49: 218
+
+EGY:
+  fullname: Egypt
+  wikidata: Q79
+  subdivisions:
+  dependencies:
+  world_region: 002/015
+  unsd_m49: 818
+
+ERI:
+  fullname: Eritrea
+  wikidata: Q986
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 232
+
+ESP:
+  fullname: Spain
+  wikidata: Q29
+  geounits:
+    - ESP-mainland
+    - Balearic Islands
+  subdivisions:
+  dependencies:
+    - Ceuta
+    - Melilla
+    - Canary Islands
+  world_region: 150/039
+  unsd_m49: 724
+
+EST:
+  fullname: Estonia
+  wikidata: Q191
+  subdivisions:
+  dependencies:
+  world_region: 150/154
+  unsd_m49: 233
+
+ETH:
+  fullname: Ethiopia
+  wikidata: Q115
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 231
+
+FIN:
+  fullname: Finland
+  wikidata: Q33
+  subdivisions:
+  dependencies:
+    - ALA
+  world_region: 150/154
+  unsd_m49: 246
+
+FJI:
+  fullname: Fiji
+  wikidata: Q712
+  subdivisions:
+  dependencies:
+  world_region: 009/054
+  unsd_m49: 242
+
+# FRA note: French overseas regions are listed as dependencies and not
+#           subdivisions for practical reasons. Also, note that they have
+#           their own ISO codes, contrary to the metropolitan regions.
+FRA:
+  fullname: France
+  wikidata: Q212429 # Metropolitan France, Q142 is the state
+  geounits:
+    - FRA-mainland
+    - Corsica
+  subdivisions:
+    - Auvergne-Rhone-Alpes
+    - Bourgogne-Franche-Comte
+    - Bretagne
+    - Centre-Val de Loire
+    - Corse
+    - Grand Est
+    - Hauts-de-France
+    - Ile-de-France
+    - Normandie
+    - Nouvelle-Aquitaine
+    - Occitanie
+    - Pays de la Loire
+    - Provence-Alpes-Cote d'Azur
+  dependencies:
+    - GUF
+    - PYF
+    - ATF
+    - GLP
+    - MTQ
+    - MYT
+    - NCL
+    - REU
+    - BLM
+    - MAF
+    - SPM
+    - WLF
+    - Clipperton
+  world_region: 150/155
+  unsd_m49: 250
+
+FSM:
+  fullname: Micronesia
+  wikidata: Q702
+  subdivisions:
+  dependencies:
+  world_region: 009/057
+  unsd_m49: 583
+
+GAB:
+  fullname: Gabon
+  wikidata: Q1000
+  subdivisions:
+  dependencies:
+  world_region: 002/202/017
+  unsd_m49: 266
+
+GBR:
+  fullname: United Kingdom
+  wikidata: Q145
+  geounits:
+    - Great Britain
+    - Northern Ireland
+  subdivisions:
+    - ENG
+    - WLS
+    - SCT
+    - NIR
+  dependencies:
+    - AIA
+    - BMU
+    - IOT
+    - VGB
+    - CYM
+    - FLK
+    - GIB
+    - GGY
+    - JEY
+    - IMN #TODO: Isle of Man is included in Q145 polygon...
+    - MSR
+    - PCN
+    - SHN
+    - SGS
+    - TCA
+    - Tristan da Cunha
+    - Ascension
+    - Akrotiri
+    - Dhekelia
+  world_region: 150/154
+  unsd_m49: 826
+
+GEO:
+  fullname: Georgia
+  wikidata: Q230
+  subdivisions:
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 268
+
+GHA:
+  fullname: Ghana
+  wikidata: Q117
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 288
+
+GIN:
+  fullname: Guinea
+  wikidata: Q1006
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 324
+
+GMB:
+  fullname: Gambia
+  wikidata: Q1005
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 270
+
+GNB:
+  fullname: Guinea-Bissau
+  wikidata: Q1007
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 624
+
+GNQ:
+  fullname: Equatorial Guinea
+  wikidata: Q983
+  geounits:
+    - Rio Muni
+    - Bioko
+    - Annobon
+  subdivisions:
+  dependencies:
+  world_region: 002/202/017
+  unsd_m49: 226
+
+GRC:
+  fullname: Greece
+  wikidata: Q41
+  subdivisions:
+  dependencies:
+  world_region: 150/039
+  unsd_m49: 300
+
+GRD:
+  fullname: Grenada
+  wikidata: Q769
+  subdivisions:
+  dependencies:
+  world_region: 019/419/029
+  unsd_m49: 308
+
+GTM:
+  fullname: Guatemala
+  wikidata: Q774
+  subdivisions:
+  dependencies:
+  world_region: 019/419/013
+  unsd_m49: 320
+
+GUY:
+  fullname: Guyana
+  wikidata: Q734
+  subdivisions:
+  dependencies:
+  world_region: 019/419/005
+  unsd_m49: 328
+
+HND:
+  fullname: Honduras
+  wikidata: Q783
+  subdivisions:
+  dependencies:
+  world_region: 0019/419/013
+  unsd_m49: 340
+
+HRV:
+  fullname: Croatia
+  wikidata: Q224
+  subdivisions:
+  dependencies:
+  world_region: 150/039
+  unsd_m49: 191
+
+HTI:
+  fullname: Haiti
+  wikidata: Q790
+  subdivisions:
+  dependencies:
+  world_region: 019/419/029
+  unsd_m49: 332
+
+HUN:
+  fullname: Hungary
+  wikidata: Q28
+  subdivisions:
+  dependencies:
+  world_region: 150/151
+  unsd_m49: 348
+
+IDN:
+  fullname: Indonesia
+  wikidata: Q252
+  subdivisions:
+  dependencies:
+  world_region: 142/035
+  unsd_m49: 360
+
+# TODO: add dependencies: Nicobar Is., Andaman Is., Lakshadweep
+IND:
+  fullname: India
+  wikidata: Q668
+  subdivisions:
+  dependencies:
+  world_region: 142/034
+  unsd_m49: 356
+
+IRL:
+  fullname: Ireland
+  wikidata: Q27
+  subdivisions:
+  dependencies:
+  world_region: 150/154
+  unsd_m49: 372
+
+IRN:
+  fullname: Iran
+  wikidata: Q794
+  subdivisions:
+  dependencies:
+  world_region: 142/034
+  unsd_m49: 364
+
+IRQ:
+  fullname: Iraq
+  wikidata: Q796
+  subdivisions:
+    # - Iraqi Kurdistan
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 368
+
+ISL:
+  fullname: Iceland
+  wikidata: Q189
+  subdivisions:
+  dependencies:
+  world_region: 150/154
+  unsd_m49: 352
+
+ISR:
+  fullname: Israel
+  wikidata: Q801 # OSM polygon excludes PSE
+  subdivisions:
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 376
+
+ITA:
+  fullname: Italy
+  wikidata: Q38
+  subdivisions:
+  dependencies:
+  world_region: 150/039
+  unsd_m49: 380
+
+JAM:
+  fullname: Jamaica
+  wikidata: Q766
+  subdivisions:
+  dependencies:
+  world_region: 019/419/029
+  unsd_m49: 388
+
+JOR:
+  fullname: Jordan
+  wikidata: Q810
+  subdivisions:
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 400
+
+JPN:
+  fullname: Japan
+  wikidata: Q17
+  geounits:
+    - Honshu
+    - Hokkaido
+    - Kyushu
+    - Shikoku
+    - Ryukyu Islands
+    - Izu Islands
+    - Ogasawara Islands
+  subdivisions:
+  dependencies:
+  world_region: 142/030
+  unsd_m49: 392
+
+KAZ:
+  fullname: Kazakhstan
+  wikidata: Q232
+  subdivisions:
+  dependencies:
+  world_region: 142/143
+  unsd_m49: 398
+
+KEN:
+  fullname: Kenya
+  wikidata: Q114
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 404
+
+KGZ:
+  fullname: Kyrgyzstan
+  wikidata: Q813
+  subdivisions:
+  dependencies:
+  world_region: 142/143
+  unsd_m49: 417
+
+KHM:
+  fullname: Cambodia
+  wikidata: Q424
+  subdivisions:
+  dependencies:
+  world_region: 142/035
+  unsd_m49: 116
+
+KIR:
+  fullname: Kiribati
+  wikidata: Q710
+  subdivisions:
+  dependencies:
+  world_region: 009/057
+  unsd_m49: 296
+
+KNA:
+  fullname: Saint Kitts and Nevis
+  wikidata: Q763
+  subdivisions:
+  dependencies:
+  world_region: 019/419/029
+  unsd_m49: 659
+
+# TODO: add Jejudo, Ulleungdo, Baengnyeongdo
+KOR:
+  fullname: South Korea
+  wikidata: Q884
+  subdivisions:
+  dependencies:
+  world_region: 142/030
+  unsd_m49: 410
+
+KWT:
+  fullname: Kuwait
+  wikidata: Q817
+  subdivisions:
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 414
+
+LAO:
+  fullname: Laos
+  wikidata: Q819
+  subdivisions:
+  dependencies:
+  world_region: 142/035
+  unsd_m49: 418
+
+LBN:
+  fullname: Lebanon
+  wikidata: Q822
+  subdivisions:
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 422
+
+LBR:
+  fullname: Liberia
+  wikidata: Q1014
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 430
+
+LBY:
+  fullname: Libya
+  wikidata: Q1016
+  subdivisions:
+  dependencies:
+  world_region: 002/015
+  unsd_m49: 434
+
+LCA:
+  fullname: Saint Lucia
+  wikidata: Q760
+  subdivisions:
+  dependencies:
+  world_region: 019/419/029
+  unsd_m49: 662
+
+LIE:
+  fullname: Liechtenstein
+  wikidata: Q347
+  subdivisions:
+  dependencies:
+  world_region: 150/155
+  unsd_m49: 438
+
+LKA:
+  fullname: Sri Lanka
+  wikidata: Q854
+  subdivisions:
+  dependencies:
+  world_region: 142/034
+  unsd_m49: 144
+
+LSO:
+  fullname: Lesotho
+  wikidata: Q1013
+  subdivisions:
+  dependencies:
+  world_region: 002/202/018
+  unsd_m49: 426
+
+LTU:
+  fullname: Lithuania
+  wikidata: Q37
+  subdivisions:
+  dependencies:
+  world_region: 150/154
+  unsd_m49: 440
+
+LUX:
+  fullname: Luxembourg
+  wikidata: Q32
+  subdivisions:
+  dependencies:
+  world_region: 150/155
+  unsd_m49: 442
+
+LVA:
+  fullname: Latvia
+  wikidata: Q211
+  subdivisions:
+  dependencies:
+  world_region: 150/154
+  unsd_m49: 428
+
+MAR:
+  fullname: Morocco
+  wikidata: Q1028 # OSM polygon is overlapping with ESH
+  subdivisions:
+  dependencies:
+  world_region: 002/015
+  unsd_m49: 504
+
+MCO:
+  fullname: Monaco
+  wikidata: Q235
+  subdivisions:
+  dependencies:
+  world_region: 150/155
+  unsd_m49: 492
+
+MDA:
+  fullname: Moldova
+  wikidata: Q217
+  subdivisions:
+  dependencies:
+  world_region: 150/151
+  unsd_m49: 498
+
+MDG:
+  fullname: Madagascar
+  wikidata: Q1019
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 450
+
+MDV:
+  fullname: Maldives
+  wikidata: Q826
+  subdivisions:
+  dependencies:
+  world_region: 142/034
+  unsd_m49: 462
+
+MEX:
+  fullname: Mexico
+  wikidata: Q96
+  subdivisions:
+  dependencies:
+  world_region: 019/419/013
+  unsd_m49: 484
+
+MHL:
+  fullname: Marshall Islands
+  wikidata: Q709
+  subdivisions:
+  dependencies:
+  world_region: 009/057
+  unsd_m49: 584
+
+MKD:
+  fullname: North Macedonia
+  wikidata: Q221
+  subdivisions:
+  dependencies:
+  world_region: 150/039
+  unsd_m49: 807
+
+MLI:
+  fullname: Mali
+  wikidata: Q912
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 466
+
+MLT:
+  fullname: Malta
+  wikidata: Q223
+  subdivisions:
+  dependencies:
+  world_region: 150/039
+  unsd_m49: 470
+
+MMR:
+  fullname: Myanmar
+  wikidata: Q836
+  subdivisions:
+  dependencies:
+  world_region: 142/035
+  unsd_m49: 104
+
+MNE:
+  fullname: Montenegro
+  wikidata: Q236
+  subdivisions:
+  dependencies:
+  world_region: 150/039
+  unsd_m49: 499
+
+MNG:
+  fullname: Mongolia
+  wikidata: Q711
+  subdivisions:
+  dependencies:
+  world_region: 142/030
+  unsd_m49: 496
+
+MOZ:
+  fullname: Mozambique
+  wikidata: Q1029
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 508
+
+MRT:
+  fullname: Mauritania
+  wikidata: Q1025
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 478
+
+MUS:
+  fullname: Mauritius
+  wikidata: Q1027
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 480
+
+MWI:
+  fullname: Malawi
+  wikidata: Q1020
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 454
+
+MYS:
+  fullname: Malaysia
+  wikidata: Q833
+  subdivisions:
+  dependencies:
+  world_region: 142/035
+  unsd_m49: 458
+
+NAM:
+  fullname: Namibia
+  wikidata: Q1030
+  subdivisions:
+  dependencies:
+  world_region: 002/202/018
+  unsd_m49: 516
+
+NER:
+  fullname: Niger
+  wikidata: Q1032
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 562
+
+NGA:
+  fullname: Nigeria
+  wikidata: Q1033
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 566
+
+NIC:
+  fullname: Nicaragua
+  wikidata: Q811
+  subdivisions:
+  dependencies:
+  world_region: 019/419/013
+  unsd_m49: 558
+
+NLD:
+  fullname: Netherlands
+  wikidata: Q55
+  subdivisions:
+  dependencies:
+    - ABW
+    - BES
+    - CUW
+    - SXM
+  world_region: 150/155
+  unsd_m49: 528
+
+NOR:
+  fullname: Norway
+  wikidata: Q20
+  subdivisions:
+  dependencies:
+    - BVT
+    - SJM
+    - Peter I Island
+  world_region: 150/154
+  unsd_m49: 578
+
+NPL:
+  fullname: Nepal
+  wikidata: Q837
+  subdivisions:
+  dependencies:
+  world_region: 142/034
+  unsd_m49: 524
+
+NRU:
+  fullname: Nauru
+  wikidata: Q697
+  subdivisions:
+  dependencies:
+  world_region: 009/057
+  unsd_m49: 520
+
+NZL:
+  fullname: New Zealand
+  wikidata: Q664
+  subdivisions:
+  dependencies:
+    - COK
+    - NIU
+    - TKL
+    - Kermadec Islands
+    - Chatham Islands
+    - NZ Subantarctic Islands
+  world_region: 009/053
+  unsd_m49: 554
+
+OMN:
+  fullname: Oman
+  wikidata: Q842
+  subdivisions:
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 512
+
+PAK:
+  fullname: Pakistan
+  wikidata: Q843
+  subdivisions:
+  dependencies:
+  world_region: 142/034
+  unsd_m49: 586
+
+PAN:
+  fullname: Panama
+  wikidata: Q804
+  subdivisions:
+  dependencies:
+  world_region: 019/419/013
+  unsd_m49: 591
+
+PER:
+  fullname: Peru
+  wikidata: Q419
+  subdivisions:
+  dependencies:
+  world_region: 019/419/005
+  unsd_m49: 604
+
+PHL:
+  fullname: Philippines
+  wikidata: Q928
+  subdivisions:
+  dependencies:
+  world_region: 142/035
+  unsd_m49: 608
+
+PLW:
+  fullname: Palau
+  wikidata: Q695
+  subdivisions:
+  dependencies:
+  world_region: 009/057
+  unsd_m49: 585
+
+PNG:
+  fullname: Papua New Guinea
+  wikidata: Q691
+  subdivisions:
+  dependencies:
+    - Bougainville
+  world_region: 009/054
+  unsd_m49: 598
+
+POL:
+  fullname: Poland
+  wikidata: Q36
+  subdivisions:
+  dependencies:
+  world_region: 150/151
+  unsd_m49: 616
+
+PRK:
+  fullname: North Korea
+  wikidata: Q423
+  subdivisions:
+  dependencies:
+  world_region: 142/030
+  unsd_m49: 408
+
+PRT:
+  fullname: Portugal
+  wikidata: Q45
+  subdivisions:
+  dependencies:
+    - Azores
+    - Madeira
+  world_region: 150/039
+  unsd_m49: 620
+
+PRY:
+  fullname: Paraguay
+  wikidata: Q733
+  subdivisions:
+  dependencies:
+  world_region: 019/419/005
+  unsd_m49: 600
+
+QAT:
+  fullname: Qatar
+  wikidata: Q846
+  subdivisions:
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 634
+
+ROU:
+  fullname: Romania
+  wikidata: Q218
+  subdivisions:
+  dependencies:
+  world_region: 150/151
+  unsd_m49: 642
+
+RUS:
+  fullname: Russia
+  wikidata: Q159
+  geounits:
+    - RUS-mainland
+    - Kaliningrad
+    - Novaya Zemlya
+    - Franz Josef Land
+  subdivisions:
+  dependencies:
+    - Baikonur
+  world_region: 150/151
+  unsd_m49: 643
+
+RWA:
+  fullname: Rwanda
+  wikidata: Q1037
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 646
+
+SAU:
+  fullname: Saudi Arabia
+  wikidata: Q851
+  subdivisions:
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 682
+
+SDN:
+  fullname: Sudan
+  wikidata: Q1049
+  subdivisions:
+  dependencies:
+  world_region: 002/015
+  unsd_m49: 729
+
+SEN:
+  fullname: Senegal
+  wikidata: Q1041
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 686
+
+SGP:
+  fullname: Singapore
+  wikidata: Q334
+  subdivisions:
+  dependencies:
+  world_region: 142/035
+  unsd_m49: 702
+
+SLB:
+  fullname: Solomon Islands
+  wikidata: Q685
+  subdivisions:
+  dependencies:
+  world_region: 009/054
+  unsd_m49: 090
+
+SLE:
+  fullname: Sierra Leone
+  wikidata: Q1044
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 694
+
+SLV:
+  fullname: El Salvador
+  wikidata: Q792
+  subdivisions:
+  dependencies:
+  world_region: 019/419/013
+  unsd_m49: 222
+
+SMR:
+  fullname: San Marino
+  wikidata: Q238
+  subdivisions:
+  dependencies:
+  world_region: 150/039
+  unsd_m49: 674
+
+SOM:
+  fullname: Somalia
+  wikidata: Q1045
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 706
+
+SRB:
+  fullname: Serbia
+  wikidata: Q403 # OSM polygon excludes XKX
+  subdivisions:
+   # - Vojvodina
+  dependencies:
+  world_region: 150/039
+  unsd_m49: 688
+
+SSD:
+  fullname: South Sudan
+  wikidata: Q958
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 728
+
+STP:
+  fullname: São Tomé and Principe
+  wikidata: Q1039
+  geounits:
+  subdivisions:
+    - Sao Tome
+    - Principe
+  dependencies:
+  world_region: 002/202/017
+  unsd_m49: 678
+
+SUR:
+  fullname: Suriname
+  wikidata: Q730
+  subdivisions:
+  dependencies:
+  world_region: 019/419/005
+  unsd_m49: 740
+
+SVK:
+  fullname: Slovakia
+  wikidata: Q214
+  subdivisions:
+  dependencies:
+  world_region: 150/151
+  unsd_m49: 703
+
+SVN:
+  fullname: Slovenia
+  wikidata: Q215
+  subdivisions:
+  dependencies:
+  world_region: 150/039
+  unsd_m49: 705
+
+SWE:
+  fullname: Sweden
+  wikidata: Q34
+  subdivisions:
+  dependencies:
+  world_region: 150/154
+  unsd_m49: 752
+
+SWZ:
+  fullname: Eswatini
+  wikidata: Q1050
+  subdivisions:
+  dependencies:
+  world_region: 002/202/018
+  unsd_m49: 748
+
+SYC:
+  fullname: Seychelles
+  wikidata: Q1042
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 690
+
+SYR:
+  fullname: Syria
+  wikidata: Q858
+  subdivisions:
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 760
+
+TCD:
+  fullname: Chad
+  wikidata: Q657
+  subdivisions:
+  dependencies:
+  world_region: 002/202/017
+  unsd_m49: 148
+
+TGO:
+  fullname: Togo
+  wikidata: Q945
+  subdivisions:
+  dependencies:
+  world_region: 002/202/011
+  unsd_m49: 768
+
+THA:
+  fullname: Thailand
+  wikidata: Q869
+  subdivisions:
+  dependencies:
+  world_region: 142/035
+  unsd_m49: 764
+
+TJK:
+  fullname: Tajikistan
+  wikidata: Q863
+  subdivisions:
+  dependencies:
+  world_region: 142/143
+  unsd_m49: 762
+
+TKM:
+  fullname: Turkmenistan
+  wikidata: Q874
+  subdivisions:
+  dependencies:
+  world_region: 142/143
+  unsd_m49: 795
+
+TLS:
+  fullname: Timor-Leste
+  wikidata: Q574
+  subdivisions:
+  dependencies:
+  world_region: 142/035
+  unsd_m49: 626
+
+TON:
+  fullname: Tonga
+  wikidata: Q678
+  subdivisions:
+  dependencies:
+  world_region: 009/061
+  unsd_m49: 776
+
+TTO:
+  fullname: Trinidad and Tobago
+  wikidata: Q754
+  geounits:
+  subdivisions:
+    - Trinidad
+    - Tobago
+  dependencies:
+  world_region: 019/419/029
+  unsd_m49: 780
+
+TUN:
+  fullname: Tunisia
+  wikidata: Q948
+  subdivisions:
+  dependencies:
+  world_region: 002/015
+  unsd_m49: 788
+
+TUR:
+  fullname: Turkey
+  wikidata: Q43
+  subdivisions:
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 792
+
+TUV:
+  fullname: Tuvalu
+  wikidata: Q672
+  subdivisions:
+  dependencies:
+  world_region: 009/061
+  unsd_m49: 798
+
+TZA:
+  fullname: Tanzania
+  wikidata: Q924 
+  subdivisions:
+  dependencies:
+    - Zanzibar #TODO: Tanzania polygon includes Zanzibar
+  world_region: 002/202/014
+  unsd_m49: 834
+
+UGA:
+  fullname: Uganda
+  wikidata: Q1036
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 800
+
+UKR:
+  fullname: Ukraine
+  wikidata: Q212
+  subdivisions:
+  dependencies:
+  world_region: 150/151
+  unsd_m49: 804
+
+URY:
+  fullname: Uruguay
+  wikidata: Q77
+  subdivisions:
+  dependencies:
+  world_region: 019/419/005
+  unsd_m49: 858
+
+USA:
+  fullname: United States of America
+  wikidata: ~Q30 # WKT modified manually to exclude PRI
+  subdivisions:
+    - Alabama
+    - Alaska
+    - Arizona
+    - Arkansas
+    - California
+    - Colorado
+    - Connecticut
+    - Delaware
+    - Florida
+    - Georgia
+    - Hawaii
+    - Idaho
+    - Illinois
+    - Indiana
+    - Iowa
+    - Kansas
+    - Kentucky
+    - Louisiana
+    - Maine
+    - Maryland
+    - Massachusetts
+    - Michigan
+    - Minnesota
+    - Mississippi
+    - Missouri
+    - Montana
+    - Nebraska
+    - Nevada
+    - New Hampshire
+    - New Jersey
+    - New Mexico
+    - New York
+    - North Carolina
+    - North Dakota
+    - Ohio
+    - Oklahoma
+    - Oregon
+    - Pennsylvania
+    - Rhode Island
+    - South Carolina
+    - South Dakota
+    - Tennessee
+    - Texas
+    - Utah
+    - Vermont
+    - Virginia
+    - Washington
+    - West Virginia
+    - Wisconsin
+    - Wyoming
+  dependencies:
+    - ASM
+    - GUM
+    - MNP
+    - PRI
+    - UMI-Pacific
+    - Navassa
+    - VIR
+    - NSGB
+    - NSFDG
+  world_region: 019/021
+  unsd_m49: 840
+
+UZB:
+  fullname: Uzbekistan
+  wikidata: Q265
+  subdivisions:
+  dependencies:
+  world_region: 142/143
+  unsd_m49: 860
+
+VAT:
+  fullname: Vatican City
+  wikidata: Q237
+  subdivisions:
+  dependencies:
+  world_region: 150/039
+  unsd_m49: 336
+
+VCT:
+  fullname: Saint Vincent and the Grenadines
+  wikidata: Q757
+  subdivisions:
+  dependencies:
+  world_region: 019/419/029
+  unsd_m49: 670
+
+VEN:
+  fullname: Venezuela
+  wikidata: Q717
+  subdivisions:
+  dependencies:
+  world_region: 019/419/005
+  unsd_m49: 862
+
+VNM:
+  fullname: Vietnam
+  wikidata: Q881
+  subdivisions:
+  dependencies:
+  world_region: 142/035
+  unsd_m49: 704
+
+VUT:
+  fullname: Vanuatu
+  wikidata: Q686
+  subdivisions:
+  dependencies:
+  world_region: 009/054
+  unsd_m49: 548
+
+WSM:
+  fullname: Samoa
+  wikidata: Q683
+  subdivisions:
+  dependencies:
+  world_region: 009/061
+  unsd_m49: 882
+
+YEM:
+  fullname: Yemen
+  wikidata: Q805
+  subdivisions:
+    - YEM-mainland
+    - Socotra Governate
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 887
+
+ZAF:
+  fullname: South Africa
+  wikidata: Q258
+  subdivisions:
+  dependencies:
+    - Prince Edward Islands
+  world_region: 002/202/018
+  unsd_m49: 710
+
+ZMB:
+  fullname: Zambia
+  wikidata: Q953
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 894
+
+ZWE:
+  fullname: Zimbabwe
+  wikidata: Q954
+  subdivisions:
+  dependencies:
+  world_region: 002/202/014
+  unsd_m49: 716
+
+
+### ------ LEVEL 0: 6 claimed by the entity itself and a sovereign state ------
+# Note: for now, entities recognised by a small (< ~5) number of UN member
+#       states or by no state at all are excluded (South Ossetia, Abkhazia,
+#       Donetsk People's Republic, Luhansk People's Republic, Pridnestrovian
+#       Moldavian Republic, Republic of Artsakh, Somaliland).
+
+# Claimed by Morocco (overlapping with OSM polygon)
+ESH:
+  fullname: Western Sahara
+  wikidata: Q6250 # Q40362: "Free Zone"
+  subdivisions:
+  dependencies:
+  world_region: 002/015
+  unsd_m49: 732
+
+# Claimed by Israel
+PSE:
+  fullname: Palestine
+  wikidata: Q219060
+  subdivisions:
+  dependencies:
+  world_region: 142/145
+  unsd_m49: 275
+
+# Claimed by China
+TWN:
+  fullname: Taiwan
+  wikidata: Q865
+  subdivisions:
+  dependencies:
+  world_region: 142/030
+
+# Claimed by Serbia
+XKX:
+  fullname: Kosovo
+  wikidata: Q1246
+  subdivisions:
+  dependencies:
+  world_region: 150/039
+
+# Claimed by Cyprus (overlapping with OSM polygon)
+# [Defined in countries_subdivisions.yaml because CYP polygon is entire island]
+# Northern Cyprus:
+#   fullname: Northern Cyprus
+#   wikidata: Q23681
+#   world_region: 150/039
+
+# Claimed by Yemen (overlapping with OSM polygon)
+# [Defined in countries_subdivisions.yaml because YEM polygon includes Socotra]
+# Socotra Governate:
+#   fullname: Socotra Governate
+#   wikidata: Q15728745
+#   world_region: 142/145
+
+
+### ---------------- LEVEL 1: 74 dependencies of 17 countries ----------------
+# 66 islands or archipelagos
+# 8 territories on a continent or foreign island:
+#  - 2 China (Hong Kong, Macau)
+#  - 1 France (French Guiana)
+#  - 1 Russia (Baikonur)
+#  - 1 Spain (Melilla)
+#  - 3 UK (Gibraltar, Akrotiri and Dhekelia bases)
+
+# Australia (6 dependencies)
+
+CXR:
+  fullname: Christmas Island
+  wikidata: Q31063
+  parent: AUS
+  subdivisions:
+  world_region: 009/053
+  world_sea: South Pacific Ocean
+  unsd_m49: 162
+
+CCK:
+  fullname: Cocos (Keeling) Islands
+  wikidata: Q36004
+  parent: AUS
+  subdivisions:
+  world_region: 009/053
+  world_sea: South Pacific Ocean
+  unsd_m49: 166
+
+HMD:
+  fullname: Heard Island and McDonald Islands
+  wikidata: Q131198
+  parent: AUS
+  subdivisions:
+  world_region: 009/053
+  world_sea: South Pacific Ocean
+  unsd_m49: 334
+
+NFK:
+  fullname: Norfolk Island
+  wikidata: Q31057
+  parent: AUS
+  subdivisions:
+  world_region: 009/053
+  world_sea: South Pacific Ocean
+  unsd_m49: 574
+
+Ashmore and Cartier Islands:
+  fullname: Ashmore and Cartier Islands
+  wikidata: Q133888
+  parent: AUS
+  subdivisions:
+  world_region: 142/034
+  world_sea: Indian Ocean
+  unsd_m49:
+
+Coral Sea Islands:
+  fullname: Coral Sea Islands
+  wikidata: Q172216
+  parent: AUS
+  subdivisions:
+  world_region: 142/034
+  world_sea: Indian Ocean
+  unsd_m49:
+
+# Chile (2 dependencies)
+
+Easter Island:
+  fullname: Easter Island
+  wikidata: Q14452
+  parent: CHL
+  subdivisions:
+  world_region: 019/419/005
+  world_sea: South Pacific Ocean
+  unsd_m49:
+
+Salas y Gomez:
+  fullname: Salas y Gómez Island
+  wikidata: Q118821
+  parent: CHL
+  subdivisions:
+  world_region: 019/419/005
+  world_sea: South Pacific Ocean
+  unsd_m49:
+
+# China (2 dependencies)
+
+HKG:
+  fullname: Hong Kong
+  wikidata: Q8646
+  parent: CHN
+  subdivisions:
+  world_region: 142/030
+  unsd_m49: 314
+
+MAC:
+  fullname: Macau
+  wikidata: Q14773
+  parent: CHN
+  subdivisions:
+  world_region: 142/030
+  unsd_m49: 446
+
+# Denmark (2 dependencies)
+
+FRO:
+  fullname: Faroe Islands
+  wikidata: Q4628
+  parent: DNK
+  subdivisions:
+  world_region: 150/154
+  world_sea: North Atlantic Ocean
+  unsd_m49: 234
+
+GRL:
+  fullname: Greenland
+  wikidata: Q223
+  parent: DNK
+  subdivisions:
+  world_region: 019/021
+  world_sea: Arctic Ocean
+  unsd_m49: 304
+
+# Finland (1 dependency)
+
+ALA:
+  fullname: Åland Islands
+  wikidata: Q5689
+  parent: FIN
+  subdivisions:
+  world_region: 150/154
+  world_sea: Baltic Sea/Gulf of Bothnia
+  unsd_m49: 248
+
+# France (13 dependencies)
+
+GUF:
+  fullname: French Guiana
+  wikidata: Q3769
+  parent: FRA
+  subdivisions:
+  world_region: 019/419/005
+  unsd_m49: 254
+
+PYF:
+  fullname: French Polynesia
+  wikidata: Q30971
+  parent: FRA
+  subdivisions:
+  world_region: 009/061
+  world_sea: South Pacific Ocean
+  unsd_m49: 258
+
+ATF:
+  fullname: French Southern Territories # exclude Antarctica here
+  wikidata: Q129003
+  parent: FRA
+  subdivisions:
+  world_region: 142/034
+  world_sea: Indian Ocean
+  unsd_m49: 260
+
+GLP:
+  fullname: Guadeloupe
+  wikidata: Q17012
+  parent: FRA
+  subdivisions:
+  world_region: 019/419/029
+  world_sea: Lesser Antilles
+  unsd_m49: 312
+
+MTQ:
+  fullname: Martinique
+  wikidata: Q17054
+  parent: FRA
+  subdivisions:
+  world_region: 019/419/029
+  world_sea: Lesser Antilles
+  unsd_m49: 474
+
+MYT:
+  fullname: Mayotte
+  wikidata: Q17063
+  parent: FRA
+  subdivisions:
+  world_region: 002/202/014
+  world_sea: Mozambique Channel
+  unsd_m49: 175
+
+NCL:
+  fullname: New Caledonia
+  wikidata: Q33788
+  parent: FRA
+  subdivisions:
+  world_region: 009/054
+  world_sea: South Pacific Ocean
+  unsd_m49: 540
+
+REU:
+  fullname: Réunion
+  wikidata: Q17070
+  parent: FRA
+  subdivisions:
+  world_region: 002/202/014
+  world_sea: Lesser Antilles
+  unsd_m49: 638
+
+BLM:
+  fullname: Saint Barthélemy
+  wikidata: Q25362
+  parent: FRA
+  subdivisions:
+  world_region: 019/419/029
+  world_sea: Lesser Antilles
+  unsd_m49: 652
+
+MAF:
+  fullname: Saint Martin
+  wikidata: Q126125
+  parent: FRA
+  subdivisions:
+  world_region: 019/419/029
+  world_sea: Lesser Antilles
+  unsd_m49: 663
+
+SPM:
+  fullname: Saint Pierre and Miquelon
+  wikidata: Q34617
+  parent: FRA
+  subdivisions:
+  world_region: 019/021
+  world_sea: Labrador Sea
+  unsd_m49: 666
+
+WLF:
+  fullname: Wallis and Futuna
+  wikidata: Q35555
+  parent: FRA
+  subdivisions:
+  world_region: 009/061
+  world_sea: South Pacific Ocean
+  unsd_m49: 876
+
+Clipperton:
+  fullname: Clipperton Island
+  wikidata: Q161258
+  parent: FRA
+  subdivisions:
+  world_region:
+  world_sea: North Pacific Ocean
+  unsd_m49:
+
+# Netherlands (4 dependencies)
+
+ABW:
+  fullname: Aruba
+  wikidata: Q21203
+  parent: NLD
+  subdivisions:
+  world_region: 019/419/029
+  world_sea: Lesser Antilles/Leeward Antilles
+  unsd_m49: 533
+
+BES:
+  fullname: Caribbean Netherlands
+  wikidata: Q27561
+  parent: NLD
+  geounits:
+    - Bonaire
+    - Sint Eustatius
+    - Saba
+  world_region: 019/419/029
+  world_sea: Lesser Antilles
+  unsd_m49: 535
+
+CUW:
+  fullname: Curaçao
+  wikidata: Q25279
+  parent: NLD
+  subdivisions:
+  world_region: 019/419/029
+  world_sea: Lesser Antilles/Leeward Antilles
+  unsd_m49: 531
+
+SXM:
+  fullname: Sint Maarten
+  wikidata: Q26273
+  parent: NLD
+  subdivisions:
+  world_region: 019/419/029
+  world_sea: Lesser Antilles
+  unsd_m49: 534
+
+# New Zealand (6 dependencies)
+
+COK:
+  fullname: Cook Islands
+  wikidata: Q26988
+  parent: NZL
+  subdivisions:
+  world_region: 009/053
+  world_sea: South Pacific Ocean
+  unsd_m49: 184
+
+NIU:
+  fullname: Niue
+  wikidata: Q34020
+  parent: NZL
+  subdivisions:
+  world_region: 009/053
+  world_sea: South Pacific Ocean
+  unsd_m49: 570
+
+TKL:
+  fullname: Tokelau
+  wikidata: Q36823
+  parent: NZL
+  subdivisions:
+  world_region: 009/053
+  world_sea: South Pacific Ocean
+  unsd_m49: 772
+
+Kermadec Islands:
+  fullname: Kermadec Islands
+  wikidata: Q114935
+  parent: NZL
+  subdivisions:
+  world_region: 009/053
+  world_sea: South Pacific Ocean
+
+Chatham Islands:
+  fullname: Chatham Islands
+  wikidata: Q115459
+  parent: NZL
+  subdivisions:
+  world_region: 009/053
+  world_sea: South Pacific Ocean
+
+NZ Subantarctic Islands:
+  fullname: New Zealand Subantarctic Islands
+  wikidata: # Q46275 No associated OSM ID, see subdivisions
+  parent: NZL
+  world_region: 009/053
+  world_sea: South Pacific Ocean
+
+# Norway (3 dependencies)
+
+BVT:
+  fullname: Bouvet Island
+  wikidata: Q23408
+  parent: NOR
+  world_region: 019/419/005
+  world_sea: South Atlantic Ocean
+  unsd_m49: 074
+
+SJM:
+  fullname: Svalbard and Jan Mayen
+  wikidata: Q842829
+  parent: NOR
+  world_region: 150/154
+  world_sea: Arctic Ocean
+  unsd_m49: 744
+
+Peter I Island:
+  fullname: Peter I Island
+  wikidata: Q202780
+  parent: NOR
+  world_region: 010
+  world_sea: South Pacific Ocean
+
+# Portugal (2 dependencies)
+
+Azores:
+  fullname: Azores
+  wikidata: Q25263
+  parent: PRT
+  subdivisions:
+  world_region: 150/039
+  world_sea: North Atlantic Ocean
+  unsd_m49:
+
+Madeira:
+  fullname: Madeira
+  wikidata: Q26253
+  parent: PRT
+  subdivisions:
+  world_region: 150/039
+  world_sea: North Atlantic Ocean
+  unsd_m49:
+
+# Papua New Guinea (1 dependency)
+
+Bougainville:
+  fullname: Bougainville
+  wikidata: Q18826
+  parent: PNG
+  subdivisions:
+  world_region: 009/054
+  world_sea: Solomon Sea
+
+# Russia (1 dependency)
+
+Baikonur:
+  fullname: Baikonur Cosmodrome
+  wikidata: Q177477
+  parent: RUS
+  subdivisions:
+  world_region: 142/143
+
+# Spain (3 dependencies)
+
+Ceuta:
+  fullname: Ceuta
+  wikidata: Q5823
+  parent: ESP
+  subdivisions:
+  world_region: 002/015
+  world_sea: Mediterranean Sea
+
+Melilla:
+  fullname: Melilla
+  wikidata: Q5831
+  parent: ESP
+  subdivisions:
+  world_region: 002/015
+
+Canary Islands:
+  fullname: Canary Islands
+  wikidata: Q5813
+  parent: ESP
+  subdivisions:
+  world_region: 002/202/011
+  world_sea: North Atlantic Ocean
+
+# Tanzania (1 dependency)
+
+Zanzibar:
+  fullname: Zanzibar
+  wikidata: Q1774
+  parent: TZA
+  subdivisions:
+  world_region: 002/202/014
+  world_sea: Indian Ocean
+
+# United Kingdom (19 dependencies)
+
+AIA:
+  fullname: Anguilla
+  wikidata: Q25228
+  parent: GBR
+  subdivisions:
+  world_region: 019/419/029
+  world_sea: Lesser Antilles
+  unsd_m49: 660
+
+BMU:
+  fullname: Bermuda
+  wikidata: Q23635
+  parent: GBR
+  subdivisions:
+  world_region: 019/021
+  world_sea: North Atlantic Ocean
+  unsd_m49: 060
+
+IOT:
+  fullname: British Indian Ocean Territory
+  wikidata: Q43448
+  parent: GBR
+  subdivisions:
+  world_region: 142/034
+  world_sea: Indian Ocean
+  unsd_m49: 086
+
+VGB:
+  fullname: British Virgin Islands
+  wikidata: Q25305
+  parent: GBR
+  subdivisions:
+  world_region: 019/419/029
+  world_sea: Lesser Antilles
+  unsd_m49: 092
+
+CYM:
+  fullname: Cayman Islands
+  wikidata: Q5785
+  parent: GBR
+  subdivisions:
+  world_region: 019/419/029
+  world_sea: Greater Antilles
+  unsd_m49: 136
+
+FLK:
+  fullname: Falkland Islands
+  wikidata: Q9648
+  parent: GBR
+  subdivisions:
+  world_region: 019/419/005
+  world_sea: South Atlantic Ocean
+  unsd_m49: 238
+
+GIB:
+  fullname: Gibraltar
+  wikidata: Q1410
+  parent: GBR
+  subdivisions:
+  world_region: 150/039
+  unsd_m49: 292
+
+GGY: # Bailiwick of Guernsey
+  fullname: Bailiwick of Guernsey
+  wikidata: Q25230
+  parent: GBR
+  subdivisions:
+    - Guernsey jurisdiction
+    - Alderney
+    - Sark fief
+  world_region: 150/154/830
+  world_sea: English Channel
+  unsd_m49: 831
+
+JEY: # Bailiwick of Jersey
+  fullname: Bailiwick of Jersey
+  wikidata: Q785
+  parent: GBR
+  subdivisions:
+  world_region: 150/154/830
+  world_sea: English Channel
+  unsd_m49: 832
+
+IMN:
+  fullname: Isle of Man
+  wikidata: Q9676
+  parent: GBR
+  subdivisions:
+  world_region: 150/154
+  world_sea: Irish Sea
+  unsd_m49: 833
+
+MSR:
+  fullname: Montserrat
+  wikidata: Q13353
+  parent: GBR
+  subdivisions:
+  world_region: 019/419/029
+  world_sea: Lesser Antilles
+  unsd_m49: 500
+
+PCN:
+  fullname: Pitcairn Islands
+  wikidata: Q35672
+  parent: GBR
+  subdivisions:
+  world_region: 009/061
+  world_sea: South Pacific Ocean
+  unsd_m49: 612
+
+SHN:
+  fullname: Saint Helena
+  wikidata: Q34497 # SHN: Q192184
+  parent: GBR
+  subdivisions:
+  world_region: 002/202/011
+  world_sea: South Atlantic Ocean
+  unsd_m49: 654
+
+SGS:
+  fullname: South Georgia and the South Sandwich Islands
+  wikidata: Q35086
+  parent: GBR
+  geounits:
+    - South Georgia
+    - South Sandwich Islands
+  world_region: 019/419/005
+  world_sea: Mediterranean Sea
+  unsd_m49: 239
+
+TCA:
+  fullname: Turks and Caicos Islands
+  wikidata: Q18221
+  parent: GBR
+  subdivisions:
+  world_region: 019/419/029
+  world_sea: North Atlantic Ocean/Lucayan Archipelago
+  unsd_m49: 796
+
+Tristan da Cunha:
+  fullname: Tristan da Cunha
+  wikidata: Q220982
+  parent: GBR
+  subdivisions:
+  world_region: 002/202/011
+  world_sea: South Atlantic Ocean
+
+Ascension:
+  fullname: Ascension Island
+  wikidata: Q46197
+  parent: GBR
+  subdivisions:
+  world_region: 002/202/011
+  world_sea: Mediterranean Sea
+
+Akrotiri:
+  fullname: Akrotiri Sovereign Base
+  wikidata: Q9143535
+  parent: GBR
+  subdivisions:
+  world_region: 150/039
+  world_sea: Mediterranean Sea
+  unsd_m49:
+
+Dhekelia:
+  fullname: Dhekelia Sovereign Base
+  wikidata: Q9206745
+  parent: GBR
+  subdivisions:
+  world_region: 150/039
+  world_sea: Mediterranean Sea
+  unsd_m49:
+
+# United States (8 dependencies)
+
+ASM:
+  fullname: American Samoa
+  wikidata: Q16641
+  parent: USA
+  subdivisions:
+  world_region: 009/061
+  world_sea: South Pacific Ocean
+  unsd_m49: 016
+
+GUM:
+  fullname: Guam
+  wikidata: Q16635
+  parent: USA
+  subdivisions:
+  world_region: 009/057
+  world_sea: North Pacific Ocean
+  unsd_m49: 316
+
+MNP:
+  fullname: Northern Mariana Islands
+  wikidata: Q16644
+  parent: USA
+  subdivisions:
+  world_region: 009/057
+  world_sea: North Pacific Ocean
+  unsd_m49: 580
+
+PRI:
+  fullname: Puerto Rico
+  wikidata: Q1183
+  parent: USA
+  subdivisions:
+  world_region: 019/419/029
+  world_sea: Greater Antilles
+  unsd_m49: 630
+
+UMI-Pacific: # 5a, official UMI includes Navassa in the Caribbean Sea
+  fullname: U.S. Minor Outlying Islands (Pacific)
+  wikidata: ~Q16645 # WKT prepared manually for Pacific
+  parent: USA
+  geounits:
+    - Baker Island
+    - Howland Island
+    - Jarvis Island
+    - Johnston Atoll
+    - Kingman Reef
+    - Midway Atoll
+    - Palmyra Atoll
+    - Wake Island
+  world_region: 009/057
+  world_sea: Pacific Ocean
+  unsd_m49: 581
+
+Navassa: #5b, UMI-Carribean
+  fullname: Navassa Island
+  wikidata: Q25359
+  parent: USA
+  geounits:
+  world_region: 029
+  world_sea: Caribbean Sea
+  unsd_m49: 581
+
+VIR:
+  fullname: U.S. Virgin Islands
+  wikidata: Q11703
+  parent: USA
+  subdivisions:
+  world_region: 019/419/029
+  world_sea: Lesser Antilles
+  unsd_m49: 850
+
+NSGB:
+  fullname: Guantanamo Bay Naval Base
+  wikidata: Q357
+  parent: USA
+  subdivisions:
+  world_region: 019/419/029
+  world_sea: Greater Antilles
+  unsd_m49:
+
+NSFDG:
+  fullname: Diego Garcia Naval Support Facility
+  wikidata: Q11694190
+  parent: USA
+  subdivisions:
+  world_region: 142/034
+  world_sea: Indian Ocean
+
+# South Africa (1 dependency)
+
+Prince Edward Islands:
+  fullname: Prince Edward Islands
+  wikidata: Q46623
+  parent: ZAF
+  subdivisions:
+  world_region: 142/034
+  world_sea: Indian Ocean/sub-Antarctic Indian Ocean
+
+
+### ------ LEVEL X: 8 claimed by different recognised sovereign states -------
+
+# TODO: add those in the dependencies of all claiming countries
+# /!\ check that the claim covers the entire territory
+
+# Ukraine, Russia
+Crimea:
+  fullname: Crimea
+  wikidata: Q15966495
+  world_region: 150/151
+
+# India, Pakistan
+Siachen Glacier:
+  fullname: Siachen Glacier
+  wikidata: Q333946
+  world_region: 142/034
+
+# Jamaica, Nicaragua, USA
+Bajo Nuevo Bank:
+  fullname: Bajo Nuevo Bank (Petrel Islands)
+  wikidata: Q1257783
+  world_region: 019/419/029
+
+# Nicaragua, USA
+Serranilla Bank:
+  fullname: Serranilla Bank
+  wikidata: Q1169008
+  world_region: 019/419/029
+
+# China (PRC), Taiwan (RoC), Vietnam
+Paracel Islands:
+  fullname: Paracel Islands
+  wikidata: Q274388
+  subdivisions:
+  world_region: 142/035
+
+# China (PRC), Philippines, Taiwan (RoC)
+Scarborough Reef:
+  fullname: Scarborough Reef
+  wikidata: Q628716
+  world_region: 142/035
+
+# China (PRC), Malaysia, Philippines, Taiwan (RoC), Vietnam, Brunei
+Spratly Islands:
+  fullname: Spratly Islands
+  wikidata: Q215664
+  geounits:
+  world_region: 142/035
+
+# Japan, North Korea, South Korea
+Liancourt Rocks:
+  fullname: Liancourt Rocks
+  wikidata: Q20317
+  world_region: 142/030
+
+
+### -------------- LEVEL X: virtual entity to store buffer zones --------------
+
+Buffers:
+  fullname: Buffer zones
+  subdivisions:
+    - UNBF in CYP
+    - UNDOF
+    - North Korea DMZ
+    - South Korea DMZ
+
+
+### ------------------------ GEOUNITS and SUBDIVISIONS ------------------------
+
+# ...main geounits are listed in [countries_geounits.yaml]
+# ...main subdivisions are listed in [countries_subdivisions.yaml]

@@ -1,0 +1,40 @@
+CATEGORIES:
+  GRP_QUALITY:
+    CAT_BAD:
+      name: 'bad'
+      key: 'DELETE'   
+    CAT_NEUTRAL:
+      name: 'neutral'
+      key: '0'
+    CAT_GOOD:
+      name: 'good'
+      key: 'ENTER'
+  GRP_GENERIC:
+    CAT_1:
+      name: 'jumps'
+      key: '1'
+    CAT_2:
+      name: 'linear'
+      key: '2'
+    CAT_3:
+      name: 'tectonics'
+      key: '3'
+    CAT_4:
+      name: 'D'
+      key: '4'
+    CAT_5:
+      name: 'E'
+      key: '5'
+    CAT_6:
+      name: 'F'
+      key: '6'
+    CAT_7:
+      name: 'G'
+      key: '7'
+    CAT_8:
+      name: 'H'
+      key: '8'
+    CAT_9:
+      name: 'I'
+      key: '9'
+

@@ -1,0 +1,147 @@
+# Time series models descriptions
+
+GROUPS:
+  #TODO
+
+MODELS:
+  LINEAR:
+    desc: 'Linear trend'
+    desc_short: 'Linear trend'
+    params:
+      a:
+        desc: 'Trend'
+        desc_short: 'trend'
+        formula: 'a'
+        formula_tex: '$a$'
+        factor: 3.1556952e7
+      b:
+        desc: 'y-intercept'
+        desc_short: 'y-intercept'
+        formula: 'y(t0)'
+        formula_tex: '$y(t_0)$'
+    metaparams:
+      trend:
+        desc: 'Trend'
+        desc_short: 'trend'
+        formula: 'a'
+        formula_tex: '$a$'
+        factor: 3.1556952e7
+      y-intercept:
+        desc: 'y-intercept'
+        desc_short: 'y-intercept'
+        formula: 'y(t0)'
+        formula_tex: '$y(t_0)$'
+  SEASONAL_LINEAR:
+    desc: 'Seasonal (annual, semi-annual) + linear trend'
+    desc_short: 'Seasonal + linear trend'
+    params:
+      a:
+        desc: 'Trend'
+        desc_short: 'trend'
+        formula: 'a'
+        formula_tex: '$a$'
+        factor: 3.1556952e7
+      b:
+        desc: 'y-intercept'
+        desc_short: 'y-intercept'
+        formula: 'y(t0)'
+        formula_tex: '$y(t_0)$'
+      A:
+        desc: 'Amplitude of the annual cosine'
+        desc_short: 'annual cos amp.'
+        formula: 'A'
+        formula_tex: '$A$'
+      B:
+        desc: 'Amplitude of the annual sine'
+        desc_short: 'annual sin amp.'
+        formula: 'B'
+        formula_tex: '$B$'
+      C:
+        desc: 'Amplitude of the semi-annual cosine'
+        desc_short: 'semi-annual cos amp.'
+        formula: 'C'
+        formula_tex: '$C$'
+      D:
+        desc: 'Amplitude of the semi-annual sine'
+        desc_short: 'semi-annual sin amp.'
+        formula: 'D'
+        formula_tex: '$D$'
+    metaparams:
+      trend:
+        desc: 'Trend'
+        desc_short: 'trend'
+        formula: 'a'
+        formula_tex: '$a$'
+        factor: 3.1556952e7
+      y-intercept:
+        desc: 'y-intercept'
+        desc_short: 'y-intercept'
+        formula: 'y(t0)'
+        formula_tex: '$y(t_0)$'
+      annual-amp:
+        desc: 'Amplitude of the annual component'
+        desc_short: 'annual amp.'
+        formula: 'sqrt(A²+B²)'
+        formula_tex: '$\sqrt{A^2 + B^2}$'
+      semi-annual-amp:
+        desc: 'Amplitude of the semi-annual component'
+        desc_short: 'semi-annual amp.'
+        formula: 'sqrt(C²+D²)'
+        formula_tex: '$\sqrt{C^2 + D^2}$'
+  SEASONAL_FOURIER:
+    desc: 'Seasonal (annual, semi-annual) + smoothly evolving trend'
+    desc_short: 'Seasonal + low-freq. Fourier coeff.'
+    params:
+      a:
+        desc: 'Trend'
+        desc_short: 'trend'
+        formula: 'a'
+        formula_tex: '$a$'
+        factor: 3.1556952e7
+      b:
+        desc: 'y-intercept'
+        desc_short: 'y-intercept'
+        formula: 'y(t0)'
+        formula_tex: '$y(t_0)$'
+      A:
+        desc: 'Amplitude of the annual cosine'
+        desc_short: 'annual cos amp.'
+        formula: 'A'
+        formula_tex: '$A$'
+      B:
+        desc: 'Amplitude of the annual sine'
+        desc_short: 'annual sin amp.'
+        formula: 'B'
+        formula_tex: '$B$'
+      C:
+        desc: 'Amplitude of the semi-annual cosine'
+        desc_short: 'semi-annual cos amp.'
+        formula: 'C'
+        formula_tex: '$C$'
+      D:
+        desc: 'Amplitude of the semi-annual sine'
+        desc_short: 'semi-annual sin amp.'
+        formula: 'D'
+        formula_tex: '$D$'
+    metaparams:
+      trend:
+        desc: 'Trend'
+        desc_short: 'trend'
+        formula: 'a'
+        formula_tex: '$a$'
+        factor: 3.1556952e7
+      y-intercept:
+        desc: 'y-intercept'
+        desc_short: 'y-intercept'
+        formula: 'y(t0)'
+        formula_tex: '$y(t_0)$'
+      annual-amp:
+        desc: 'Amplitude of the annual component'
+        desc_short: 'annual amp.'
+        formula: 'sqrt(A²+B²)'
+        formula_tex: '$\sqrt{A^2 + B^2}$'
+      semi-annual-amp:
+        desc: 'Amplitude of the semi-annual component'
+        desc_short: 'semi-annual amp.'
+        formula: 'sqrt(C²+D²)'
+        formula_tex: '$\sqrt{C^2 + D^2}$'

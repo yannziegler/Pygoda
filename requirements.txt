@@ -1,0 +1,14 @@
+python>=3.10
+qt>=5.15, <5.16
+pyside2>=5.15, <5.16
+pyqtgraph=>0.12, <0.13
+cartopy>=0.21, <0.22
+matplotlib-base>=3.6, <3.7
+geopandas>=0.11, <0.12
+pandas>=1.5, <1.6
+shapely>=1.8, <1.9
+h5py>=3.7, <3.8
+netcdf4>=1.6, <1.7
+scipy>=1.9, <2.0
+numpy>=1.23, <1.24
+strictyaml>=1.6, <1.7

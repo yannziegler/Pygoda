@@ -1,0 +1,16 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/">
+    <file alias="leaflet.js">leaflet_map/leaflet.js</file>
+    <file alias="leaflet.css">leaflet_map/leaflet.css</file>
+    <file alias="images/layers.png">leaflet_map/images/layers.png</file>
+    <file alias="images/layers-2x.png">leaflet_map/images/layers-2x.png</file>
+    <file alias="uPlot.js">leaflet_map/uPlot.iife.min.js</file>
+    <file alias="uPlot.css">leaflet_map/uPlot.min.css</file>
+    <file alias="qwebchannel.js">leaflet_map/qwebchannel.js</file>
+    <file>../geo/plot_data.js</file>
+    <file>../geo/setup_map.js</file>
+    <file>../geo/setup_qwebchannel.js</file>
+</qresource>
+</RCC>
+
+<!-- pyside2-rcc -o resources/rc_leaflet.py resources/leaflet.qrc -->

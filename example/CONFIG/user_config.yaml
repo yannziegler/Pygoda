@@ -1,0 +1,140 @@
+# User config file for Pygoda
+# ===========================
+
+# UPPER CASE: sections names, or constants (*never* modified after startup).
+# lower case: parameters which can be adjusted at runtime.
+
+## STATIONS CATEGORIES ##
+
+# /!\ For CAT_BAD, CAT_NEUTRAL, CAT_GOOD, and CAT_1 to CAT_9,
+#     you can only modify the fields 'name' and 'key'.
+# /!\ If an ID is specified, user-defined categories MUST have an ID >= 100.
+# It is recommended to use one of the default category CAT_1 to CAT_9 and
+# to create custom categories only if you need more than 9 categories.
+# You can also delete all or some of the CAT_1 to CAT_9 categories.
+# Note: order matters for cycling through categories
+CATEGORIES:
+#  # Syntax
+#  CAT_CODE:  # unique name, used in themes files
+#    ID:      # unique ID, not required and see warning above
+#    name:    # display name in the GUI and filenames
+#    key:     # keyboard shortcut to apply this category
+  CAT_BAD:
+    name: 'bad'
+    key: 'DELETE'   
+  CAT_NEUTRAL:
+    name: 'neutral'
+    key: '0'
+  CAT_GOOD:
+    name: 'good'
+    key: 'ENTER'
+  CAT_1: 
+    name: 'A'
+    key: '1'
+  CAT_2: 
+    name: 'B'
+    key: '2'
+  CAT_3: 
+    name: 'C'
+    key: '3'
+  CAT_4: 
+    ID: 14
+    name: 'D'
+    key: '4'
+  CAT_5: 
+    name: 'E'
+    key: '5'
+  CAT_6: 
+    name: 'F'
+    key: '6'
+  CAT_7: 
+    name: 'G'
+    key: '7'
+  CAT_8: 
+    name: 'H'
+    key: '8'
+  CAT_9: 
+    name: 'I'
+    key: '9'
+#  CAT_CUSTOM_0:
+#    ID: 100
+#    name: 'My new category'
+#    key: '+'
+
+# Default category for stations without category at startup
+CAT_DEFAULT: CAT_NEUTRAL 
+
+# Target category when hitting SPACE key once
+# (if the category is already applied, switch back to CAT_DEFAULT)
+cat_switch: CAT_BAD
+
+# Target category for SHIFT + LEFT CLICK
+# Specify a CAT_CODE or '+'/'-' for next/previous category
+cat_shift_left: '+'
+# Idem for SHIFT + RIGHT CLICK
+cat_shift_right: '-'
+
+
+## GRID ##
+
+GRID:
+  # Number of rows
+  nrows: 9
+  # Number of columns
+  ncols: 5
+  # Adjust nrows and ncols to fill the last page more efficiently
+  auto_adjust_geometry: True
+  # Move to next station after assigning a category with SPACE or 0-9 key.
+  auto_advance: True
+
+
+## SUBPLOTS ##
+
+PLOT:
+  # Downsample the data before plotting
+  # (slightly increases GUI reactivity and decreases memory footprint)
+  downsampling_rate: 1 # n = plot 1/n of the data points
+  downsampling_threshold: 1000 # no subsampling if there are less than n data
+  downsampling_method: naive # only option is 'naive' for now
+  best_quality_on_hover: True # remove downsampling when hovering/selecting
+  keep_best_quality: True # make previous option persistent
+
+
+## MAP ##
+
+MAP:
+  # Cartopy map resolution
+  # 110m (low), 50m (medium), 10m (high)
+  resolution: '110m'
+  # Cartopy projection
+  # 'lcc' = Lambert Conic
+  # 'carree' = Plate Carree
+  projection: 'carree'
+  # Map extent, automatically adjusted if not provided
+  # longitude in [-180, 180], latitude in [-90, 90]
+  map_extent:
+    min_lon: -180.
+    max_lon: 180.
+    min_lat: -90.
+    max_lat: 90.
+
+# Polygons to be displayed on the map and used to filter the stations
+#MAP_LAYERS:
+#  # Syntax
+#  layer_unique_name: # layer unique name
+#    name:            # display name of the layer
+#    display:         # show at startup
+#    type:            # type of data
+#    path:            # path to data to plot (file or folder)
+#    list:            # list of polygons
+#    alpha:           # alpha of the overlay when plotted on the map
+#    simplify:        # simplify parameter for plotting (see Cartopy doc)
+#  countries:
+#    name: 'Countries'
+#    display: False
+#    type: 'WKT'
+#    path: 'data/WKT/'
+#    list: 'data/WKT/countries.yaml'
+#    alpha: 0.2
+#    simplify: 0.2
+

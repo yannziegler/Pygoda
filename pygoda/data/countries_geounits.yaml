@@ -1,0 +1,392 @@
+# Country hierarchy for Pygoda - countries main subdivisions
+# Data compiled by Yann Ziegler - last update 2022-08-16
+
+# DISCLAIMER: the content of this file may or may not reflect the political
+# world view of its author(s). It is built with practical purpose in mind, its
+# goal being to offer a convenient basis for geographical data selection and
+# visualisation. Feel free to modify it to suit your need.
+
+# This file must be used with [countries.yaml]. See the header of the latter
+# for a detailed explanation of the content of these files.
+
+# Here, we define the main geounits of all countries and dependencies listed
+# in [countries.yaml]. We loosely define a geounit as a geographic subdivision
+# of a territory, which is exclusively based on geographic criteria. Thus, a
+# geounit may or may not reflect the administrative subdivisions of the
+# territory. A geounit is *not* a dependency, it is part of its parent
+# territory in the same way as any other subdivision.
+
+# Examples:
+#  - Antigua and Barbuda as separate islands
+#  - Corsica and mainland France
+#  - Alaska, Hawaii and the conterminous United States
+#  - The main islands of Japan
+
+# Note: geounits are only used when displaying the world territory hierarchy
+# in 'geographic mode'. When using the 'administrative mode', geounits are
+# ignored.
+
+# File (YAML) syntax:
+# ------------------
+# Territory name:
+#  fullname: ...
+#  wikidata: Wikidata ID
+#  parent: immediate parent ISO code/name
+#  subdivisions:
+#    - first subdivision name
+#    - second ...
+#  world_region: only if different from parent
+
+
+### --------------- LEVEL 1: main geounits of LEVEL-0 countries ---------------
+
+# MODEL TO COPY/PASTE
+# :
+#   fullname: 
+#   wikidata: 
+#   parent: 
+#   subdivisions:
+
+# ATG
+
+Antigua:
+  fullname: Antigua
+  wikidata: Q316390
+  parent: ATG
+  subdivisions:
+
+Barbuda:
+  fullname: Barbuda
+  wikidata: Q238752
+  parent: ATG
+  subdivisions:
+
+# AUS
+
+AUS-mainland:
+  fullname: Mainland Australia 
+  wikidata: 
+  parent: AUS
+  subdivisions:
+
+Tasmania:
+  fullname: Tasmania
+  wikidata: Q34366
+  parent: AUS
+  subdivisions:
+
+# ECU
+
+ECU-mainland:
+  fullname: Mainland Ecuador
+  wikidata: #TODO: missing polygon, use admin regions
+  parent: ECU
+  subdivisions:
+
+Galapagos Islands:
+  fullname: Galápagos Islands
+  wikidata: Q475038
+  parent: ECU
+  subdivisions:
+
+# ESP
+
+ESP-mainland:
+  fullname: Mainland Spain
+  wikidata: #TODO: missing polygon, use admin regions
+  parent: ESP
+  subdivisions:
+
+Balearic Islands:
+  fullname: Balearic Islands
+  wikidata: Q5765
+  parent: ESP
+  subdivisions:
+
+# FRA
+
+FRA-mainland:
+  fullname: Mainland France
+  wikidata: #TODO: missing polygon, use admin regions
+  parent: FRA 
+  subdivisions:
+
+Corsica:
+  fullname: Corsica
+  wikidata: 
+  parent: FRA 
+  subdivisions:
+
+# GBR
+
+Great Britain: # island
+  fullname: Great Britain
+  wikidata: 
+  parent: GBR 
+  subdivisions:
+
+Northern Ireland: # territory, not NIR
+  fullname: Northern Ireland
+  wikidata: 
+  parent: GBR 
+  subdivisions:
+
+# GNQ
+
+Rio Muni:
+  fullname: Rio Muni 
+  wikidata: Q845368
+  parent: GNQ 
+  subdivisions:
+
+Bioko:
+  fullname: Bioko
+  wikidata: Q205022
+  parent: GNQ 
+  subdivisions:
+
+Annobon:
+  fullname: Annobón
+  wikidata: Q728665
+  parent: GNQ 
+  subdivisions:
+
+# JPN
+
+Honshu:
+  fullname: Honshu
+  wikidata: Q13989
+  parent: JPN 
+  subdivisions:
+
+Hokkaido:
+  fullname: Hokkaido
+  wikidata: Q35581
+  parent: JPN 
+  subdivisions:
+
+Kyushu:
+  fullname: Kyushu
+  wikidata: Q13987
+  parent: JPN 
+  subdivisions:
+
+Shikoku:
+  fullname: Shikoku
+  wikidata: Q13991
+  parent: JPN 
+  subdivisions:
+
+Ryukyu Islands:
+  fullname: Ryukyu Islands
+  wikidata: Q10905515
+  parent: JPN 
+  subdivisions:
+
+Izu Islands:
+  fullname: Izu Islands
+  wikidata: Q864302
+  parent: JPN 
+  subdivisions:
+
+Ogasawara Islands:
+  fullname: Ogasawara Islands
+  wikidata: Q243634
+  parent: JPN 
+  subdivisions:
+
+# RUS
+
+RUS-mainland:
+  fullname: Mainland Russia
+  wikidata: #TODO: missing polygon, use admin regions
+  parent: RUS
+  subdivisions:
+
+Kaliningrad:
+  fullname: Kaliningrad 
+  wikidata: Q1749
+  parent: RUS
+  subdivisions:
+
+Novaya Zemlya:
+  fullname: Novaya Zemlya
+  wikidata: Q4307309
+  parent: RUS
+  subdivisions:
+
+Franz Josef Land:
+  fullname: Franz Josef Land 
+  wikidata: Q185018
+  parent: RUS
+  subdivisions:
+
+
+### ---------------- LEVEL 2: subdivisions of LEVEL-1 geounits ----------------
+
+# MODEL TO COPY/PASTE
+# :
+#   fullname: 
+#   wikidata: 
+#   parent: 
+#   subdivisions:
+
+#TODO
+
+
+### ---------------- LEVEL 2: geounits of LEVEL-1 dependencies ----------------
+
+# MODEL TO COPY/PASTE
+# :
+#   fullname: 
+#   wikidata: 
+#   parent: 
+#   subdivisions:
+
+# FRA / ATF
+
+# TODO
+# # Scattered Islands in the Indian Ocean
+# - Tromelin I. # might be moved to disputed territory
+# - Europa Island # idem
+# - Juan De Nova I. # idem
+# - Bassas da India # idem
+# - Glorioso Is. # idem
+
+# GBR / SGS
+
+South Georgia:
+  fullname: South Georgia
+  wikidata: Q1137202
+  parent: SGS
+  subdivisions:
+
+South Sandwich Islands:
+  fullname: South Sandwich Islands
+  wikidata: Q118223
+  parent: SGS
+  subdivisions:
+
+# NLD / BES
+
+Bonaire:
+  fullname: Bonaire
+  wikidata: Q25396
+  parent: BES
+  subdivisions:
+  world_region: 
+
+Sint Eustatius:
+  fullname: Sint Eustatius
+  wikidata: Q26180
+  parent: BES
+  subdivisions:
+  world_region: 
+
+Saba:
+  fullname: Saba
+  wikidata: Q25528
+  parent: BES
+  subdivisions:
+  world_region: 
+
+# NOR / SJM
+
+Svalbard:
+  fullname: Svalbard
+  wikidata: Q25231
+  parent: SJM
+  subdivisions:
+  world_region: 
+
+Jan Mayen:
+  fullname: Jan Mayen Island
+  wikidata: Q14056
+  parent: SJM 
+  subdivisions:
+  world_region: 
+
+# NZL / NZ Subantarctic Islands
+
+Snares Islands:
+  fullname: Snares Islands
+  wikidata: Q41455
+  parent: NZ Subantarctic Islands
+  subdivisions:
+  world_region: 
+
+Bounty Islands:
+  fullname: Bounty Islands
+  wikidata: Q41451
+  parent: NZ Subantarctic Islands
+  subdivisions:
+  world_region: 
+
+Antipodes Islands:
+  fullname: Antipodes Islands
+  wikidata: Q503712
+  parent: NZ Subantarctic Islands
+  subdivisions:
+  world_region: 
+
+Auckland Islands:
+  fullname: Auckland Islands
+  wikidata: Q326951
+  parent: NZ Subantarctic Islands
+  subdivisions:
+  world_region: 
+
+Campbell Island:
+  fullname: Campbell Island
+  wikidata: Q3593036
+  parent: NZ Subantarctic Islands
+  subdivisions:
+  world_region: 
+
+# USA / UMI-Pacific (without Navassa, Pacific Islands only)
+# Note: the division UMI-Pacific/Navassa is not official, just convenient.
+
+Baker Island:
+  fullname: Baker Island
+  wikidata: Q46879
+  parent: UMI-Pacific
+
+Howland Island:
+  fullname: Howland I. 
+  wikidata: Q131305
+  parent: UMI-Pacific
+
+Jarvis Island:
+  fullname: Jarvis Island
+  wikidata: Q62218
+  parent: UMI-Pacific
+
+Johnston Atoll:
+  fullname: Johnston Atoll
+  wikidata: Q131008
+  parent: UMI-Pacific
+
+Kingman Reef:
+  fullname: Kingman Reef
+  wikidata: Q130895
+  parent: UMI-Pacific
+
+Midway Atoll:
+  fullname: Midway Atoll
+  wikidata: Q47863
+  parent: UMI-Pacific
+
+Palmyra Atoll:
+  fullname: Palmyra Atoll
+  wikidata: Q123076
+  parent: UMI-Pacific
+
+Wake Island:
+  fullname: Wake Island
+  wikidata: Q43296
+  parent: UMI-Pacific
+
+
+### ----------------------- LEVEL n+1: smaller geounits -----------------------
+
+# ...further geounits are listed in [countries_geounits_small.yaml]

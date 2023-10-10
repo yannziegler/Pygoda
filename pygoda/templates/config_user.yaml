@@ -1,0 +1,222 @@
+# User config file for Pygoda
+# ===========================
+
+VERSION: 20221107
+
+##############################################################################
+#                          DO NOT MODIFY THIS FILE!                          #
+#                          -----------------------                           #
+#  It is a template which might be overwritten anytime at Pygoda startup.    #
+#  Create a copy of this file if you want to modify any of the parameters.   #
+#  The copy filename MUST start with 'config' and have extension '.yaml'     #
+#  (and of course, you can remove this banner in your copy).                 #
+#  If several copies are made, LAST in alphabetical order takes precedence.  #
+##############################################################################
+
+# UPPER CASE: sections names, or constants (*never* modified after startup).
+# lower case: parameters which can be adjusted at runtime.
+
+
+## STATIONS CATEGORIES ##
+
+# Default category group order and names
+# Can be extended and partially modified by the user
+# (order matters for cycling through groups)
+GRP_CATEGORIES:
+# # Syntax
+# GRP_CODE:     # unique name, define a group of categories
+#   ID:         # unique ID, not required
+#   name:       # display name in the GUI and filenames
+#   cat_reset:  # fallback category in this group
+#   cat_switch: # default category switch when hitting SPACE key
+  GRP_QUALITY:
+    ID: 1
+    name: 'Quality'
+    cat_reset: CAT_NEUTRAL
+    cat_switch: CAT_BAD
+  GRP_GENERIC:
+    ID: 2
+    name: 'Generic'
+    cat_switch: CAT_1
+
+# /!\ For CAT_BAD, CAT_NEUTRAL, CAT_GOOD, and CAT_1 to CAT_9,
+#     you can only modify the fields 'name' and 'key'.
+# /!\ If an ID is specified, user-defined categories MUST have an ID >= 100.
+# It is recommended to use one of the default category CAT_1 to CAT_9 and
+# to create custom categories only if you need more than 9 categories.
+# You can also delete all or some of the CAT_1 to CAT_9 categories.
+# Note: order matters for cycling through categories
+CATEGORIES:
+# # Syntax
+# GRP_CODE:    # unique name, must match a group in GRP_CATEGORIES
+#   CAT_CODE:  # unique name, define a category, used in themes files
+#     ID:      # unique ID, not required and see warning above
+#     name:    # display name in the GUI and filenames
+#     key:     # keyboard shortcut to apply this category
+  GRP_QUALITY:
+    CAT_BAD:
+      ID: -1
+      name: 'bad'
+      key: 'DELETE'   
+    CAT_NEUTRAL:
+      ID: 0
+      name: 'neutral'
+      key: '0'
+    CAT_GOOD:
+      ID: 1
+      name: 'good'
+      key: 'ENTER'
+  GRP_GENERIC:
+    CAT_1: 
+      ID: 11
+      name: 'A'
+      key: '1'
+    CAT_2: 
+      ID: 12
+      name: 'B'
+      key: '2'
+    CAT_3: 
+      ID: 13
+      name: 'C'
+      key: '3'
+    CAT_4: 
+      ID: 14
+      name: 'D'
+      key: '4'
+    CAT_5: 
+      ID: 15
+      name: 'E'
+      key: '5'
+    CAT_6: 
+      ID: 16
+      name: 'F'
+      key: '6'
+    CAT_7: 
+      ID: 17
+      name: 'G'
+      key: '7'
+    CAT_8: 
+      ID: 18
+      name: 'H'
+      key: '8'
+    CAT_9: 
+      ID: 19
+      name: 'I'
+      key: '9'
+#   CAT_CUSTOM_0:
+#     ID: 100
+#     name: 'My new category'
+#     key: '+'
+
+# Default category for stations without category at startup
+CAT_DEFAULT: GRP_QUALITY.CAT_NEUTRAL 
+
+# Target category for SHIFT + LEFT CLICK
+# Specify a CAT_CODE or '+'/'-' for next/previous category
+cat_shift_left: '+'
+# Idem for SHIFT + RIGHT CLICK
+cat_shift_right: '-'
+
+
+## PERFORMANCES ##
+
+PERFORMANCES:
+  ## Data loading
+  # Load this number of stations at startup (-1 == all)
+  load_nsta: -1 
+  # Always load all the data for the first grid page
+  load_first_page: True 
+  # Load the data only when needed
+  load_on_the_fly: False 
+  # Keep no more than this number of stations in memory (-1 == no limit)
+  #max_in_memory: -1 
+
+  ## Downsampling before plotting
+  ## (slightly increases GUI reactivity and decreases memory footprint)
+  # n = plot 1/n of the data points
+  downsampling_rate: 1 
+  # No subsampling if there are less than n data
+  downsampling_threshold: 1000 
+  # Only option is 'naive' for now
+  downsampling_method: naive 
+  # Remove downsampling when hovering/selecting
+  best_quality_on_hover: True 
+  # Make previous option persistent
+  keep_best_quality: True 
+
+  ## Auto-update of large plot
+  # Don't auto update large plot if len(data) > threshold
+  largeplot_update_threshold: 50000 
+
+
+## GRID ##
+
+GRID:
+  # Number of rows
+  nrows: 9
+  # Number of columns
+  ncols: 5
+  # Adjust nrows and ncols to fill the last page more efficiently
+  auto_adjust_geometry: True
+  # Move to next station after assigning a category with SPACE or 0-9 key.
+  auto_advance: True
+
+
+## SUBPLOTS ##
+
+SUBPLOTS:
+  plot_type: 'scatter' # only option is 'scatter' for now
+
+
+## LARGE PLOT ##
+
+LARGEPLOT:
+  plot_type: 'scatter' # only option is 'scatter' for now
+
+
+## MAP ##
+
+MAP:
+  # Cartopy map resolution
+  # 110m (low), 50m (medium), 10m (high)
+  resolution: '110m'
+  # Cartopy projection
+  # 'lcc' = Lambert Conic
+  # 'carree' = Plate Carree
+  projection: 'carree'
+  # Map extent, automatically adjusted if not provided
+  # longitude in [-180, 180], latitude in [-90, 90]
+  #map_extent:
+  #  min_lon: -180.
+  #  max_lon: 180.
+  #  min_lat: -90.
+  #  max_lat: 90.
+  # Options passed to Cartopy for selected projection
+  # See: https://scitools.org.uk/cartopy/docs/latest/reference/projections.html
+  #options:
+  #  arg1: ...
+  #  arg2: ...
+
+
+## MAP OVERLAYS ##
+
+# Polygons to be displayed on the map and used to filter the stations
+
+#MAP_OVERLAYS:
+#  # Syntax
+#  overlay_name:      # overlay unique name
+#    name:            # display name of the overlay
+#    display:         # show at startup
+#    type:            # type of data
+#    path:            # path to data to plot (file or folder)
+#    list:            # list of polygons
+#    alpha:           # alpha of the overlay when plotted on the map
+#    simplify:        # simplify parameter for plotting (see Cartopy doc)
+#  countries:
+#    name: 'Countries'
+#    display: False
+#    type: 'WKT'
+#    path: 'data/WKT/'
+#    list: 'data/WKT/countries.yaml'
+#    alpha: 0.2
+#    simplify: 0.2

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Pygoda Leaflet Map</title>
+        <!-- Leaflet components -->
+        <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" -->
+        <!-- integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" -->
+        <!-- crossorigin=""/> -->
+        <!-- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" -->
+        <!-- integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" -->
+        <!-- crossorigin=""></script> -->
+        <link rel="stylesheet" href="qrc:///leaflet.css">
+        <script src="qrc:///leaflet.js"></script>
+        <!-- uPlot components -->
+        <link rel="stylesheet" href="qrc:///uPlot.css">
+        <script src="qrc:///uPlot.js"></script>
+        <!-- Qt QWebChannel init script -->
+        <script src="qrc:///qwebchannel.js"></script>
+        <style>
+         :root {
+             --station-marker-width: 20px;
+             --station-marker-height: 20px;
+         }
+         body { padding: 0; margin: 0; }
+         html, body, #map { height: 100%; }
+         .station-divicon-plotted {
+             width: var(--station-marker-width);
+             height: var(--station-marker-height);
+         }
+         .station-divicon-noplot {
+             width: calc(0.6*var(--station-marker-width));
+             height: calc(0.6*var(--station-marker-height));
+             opacity: 0.6;
+         }
+         .svg-icon-default {
+             width: 100%;
+             height: auto;
+             /* background-color: #fd8424; */
+             /* border-radius: 3px; */
+             /* border: 2px solid #ca6a1b; */
+         }
+         .svg-icon-hovered {
+         }
+         .svg-icon-selected {
+             border-radius: 20px;
+             border: 4px solid #f0e442;
+         }
+         .svg-component-default {
+             fill: #ffffff;
+             stroke: #000000;
+             stroke-width: 5px;
+         }
+         .svg-component-hovered{
+         }
+         .svg-component-selected{
+             /* fill: #f0e442; */
+             /* stroke: #f0e442; */
+             /* stroke-width: 10px; */
+         }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+    </body>
+    <!-- Configure Leaflet map -->
+    <script src="qrc:///geo/setup_map.js"></script>
+    <!-- Configure QWebChannel -->
+    <script src="qrc:///geo/setup_qwebchannel.js"></script>
+</html>
+
