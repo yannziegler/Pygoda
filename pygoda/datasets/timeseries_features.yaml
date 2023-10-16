@@ -1,0 +1,178 @@
+# Time series features descriptions
+
+GROUPS:
+  SPACE: 'Position'
+  TIME: 'Time vector'
+  DATA: 'Data'
+  SIGMA: 'Uncertainty'
+  EVENTS: 'Events'
+  # TS: 'Time series'
+  MODELS: 'Fitted models'
+  USER: 'User defined...'
+
+FEATURES:
+  DEFAULT:
+    desc: 'Default order'
+    desc_short: 'default'
+    formula: ''
+    formula_tex: ''
+    type: string
+  NAMES:
+    desc: 'Alphabetical order'
+    desc_short: 'alphabetical'
+    formula: ''
+    formula_tex: ''
+    type: string
+  SPACE:
+    LON:
+      desc: 'Longitude'
+      desc_short: 'longitude'
+      formula: 'lambda'
+      formula_tex: '$\lambda$'
+      type: angle
+    LAT:
+      desc: 'Latitude'
+      desc_short: 'latitude'
+      formula: 'pi/2 - theta'
+      formula_tex: '$\pi/2 - \theta$'
+      type: angle
+    COLAT:
+      desc: 'Colatitude'
+      desc_short: 'colatitude'
+      formula: 'theta'
+      formula_tex: '$\theta$'
+      type: angle
+    HEIGHT:
+      desc: 'Elevation'
+      desc_short: 'elevation'
+      formula: 'h'
+      formula_tex: '$h$'
+      type: float
+    D0:
+      desc: 'Distance to reference point'
+      desc_short: 'dist. to reference'
+      formula: 's - s_0'
+      formula_tex: '$s - s_0$'
+      type: float
+  TIME:
+    SPAN:
+      desc: 'Time coverage'
+      desc_short: 'time coverage'
+      formula: 't_max - t_min'
+      formula_tex: '$t_{\rm max} - t_{\rm min}$'
+      type: duration
+    MIN:
+      desc: 'Earliest recording'
+      desc_short: 'first record'
+      formula: 't_min'
+      formula_tex: '$t_{\rm min}$'
+      type: date
+    MAX:
+      desc: 'Latest recording'
+      desc_short: 'last record'
+      formula: 't_max'
+      formula_tex: '$t_{\rm max}$'
+      type: date
+    DENSITY:
+      desc: 'Temporal density'
+      desc_short: 'temporal density'
+      formula: 'len(t)/(t_max - t_min)'
+      formula_tex: '${\rm len}(t)/(t_{\rm max} - t_{\rm min})$'
+      type: float
+    GAPS:
+      desc: 'Gaps or missing data'
+      desc_short: 'gaps'
+      formula: 'Σ dt/len(t)'
+      formula_tex: '$\sum dt/{\rm len}(t)$'
+      type: float
+    LARGEST_GAP:
+      desc: 'Largest gap'
+      desc_short: 'largest gap'
+      formula: 'max(dt)'
+      formula_tex: '${\rm max}(dt)$'
+      type: duration
+  DATA:
+    N:
+      desc: 'Number of data points'
+      desc_short: 'number of data'
+      formula: 'len(y)'
+      formula_tex: '{\rm len}(y)'
+      type: integer
+    MIN:
+      desc: 'Smallest value'
+      desc_short: 'smallest value'
+      formula: 'min(y)'
+      formula_tex: '${\rm min}(y)$'
+      type: amplitude
+    MAX:
+      desc: 'Largest value'
+      desc_short: 'largest value'
+      formula: 'max(y)'
+      formula_tex: '${\rm max}(y)$'
+      type: amplitude
+    MINMAX:
+      desc: 'Total amplitude'
+      desc_short: 'total amplitude'
+      formula: 'max(y) - min(y)'
+      formula_tex: '${\rm max}(y) - {\rm min}(y)$'
+      type: amplitude
+    MEDIAN:
+      desc: 'Median'
+      desc_short: 'median'
+      formula: 'median(y)'
+      formula_tex: '${\rm median}(y)$'
+      type: amplitude
+    VAR_MEDIAN:
+      desc: 'Variability'
+      desc_short: 'variability'
+      formula: '1/N Σ|y-median(y)|'
+      formula_tex: '$1/N \sum |y - {\rm median}(y)|$'
+      type: float
+    OFFSET_MIN:
+      desc: 'Smallest offset'
+      desc_short: 'smallest offset'
+      formula: 'min(|dy|)'
+      formula_tex: '${\rm min}(|dy|)$'
+      type: amplitude
+    OFFSET_MAX:
+      desc: 'Largest offset'
+      desc_short: 'largest offset'
+      formula: 'max(|dy|)'
+      formula_tex: '${\rm max}(|dy|)$'
+      type: amplitude
+    OFFSET_MAX_SMART:
+      desc: 'Largest offset'
+      desc_short: 'largest offset custom'
+      formula: 'custom method'
+      formula_tex: 'custom method'
+      type: amplitude
+  SIGMA:
+    SIGMA_MED:
+      desc: 'Median of uncertainties'
+      desc_short: 'uncertainties median'
+      formula: 'median(σ)'
+      formula_tex: '${\rm median}(\sigma)$'
+      type: amplitude
+    SIGMA_MIN:
+      desc: 'Smallest uncertainty'
+      desc_short: 'smallest uncertainty'
+      formula: 'min(σ)'
+      formula_tex: '${\rm min}(\sigma)$'
+      type: amplitude
+    SIGMA_MAX:
+      desc: 'Largest uncertainty'
+      desc_short: 'largest uncertainty'
+      formula: 'max(σ)'
+      formula_tex: '${\rm max}(\sigma)$'
+      type: amplitude
+  EVENTS:
+    N:
+      desc: 'Number of jumps'
+      desc_short: 'jumps'
+      formula: ''
+      formula_tex: ''
+      type: integer
+  MODELS:
+      # defined in models_lib.yaml
+  USER:
+      # defined elsewhere

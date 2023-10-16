@@ -1,0 +1,235 @@
+# User theme file for Pygoda
+# ==========================
+
+# Theme applied at startup
+# ('Default dark' or 'Default light' are always available)
+theme: 'Default dark'
+
+
+## COLOR PALETTES ##
+
+PALETTES:
+#  # Syntax
+#  PALETTE_NAME:       # unique name to refer to the palette
+#    color1: '#abcdef' # color name and value in hexadecimal format
+#    color2: '#0FADED'
+#    # etc.
+  PYGODA:
+    # Default palette
+    black: '#000000'
+    white: '#ffffff'
+    dark_blue: '#212f3d'
+    deep_blue: '#273746'
+    night_blue: '#2c3e50'
+    sky_blue: '#56b4e9'
+    blue_gray: '#5d6c89'
+    blue: '#0072b2'
+    bright_blue: '#000F1A'
+    light_blue: '#85c1e9'
+    lightest_blue: '#88adc8'
+    light_grey: '#ccd1d1'
+    turquoise: '#36d6e7'
+    tangerine: '#feb06a'
+    orange: '#e69f00'
+    yellow: '#f0e442'
+    darkest_yellow: '#2A2A28'
+    cream: '#fbf6f3'
+    banana_mania: '#FAE6BE'
+  WONG_8COLORBLIND:
+    # 8-color palette for colorblindness + white
+    # http://mkweb.bcgsc.ca/colorblind/
+    white: '#ffffff'
+    black: '#000000' # 0 0 0
+    blue: '#0072b2' # 0 114 178
+    sky_blue: '#56b4e9' # 86 180 233
+    reddish_purple: '#cc79a7' # 204 121 167
+    bluish_green: '#009e73' # 0 158 115
+    vermillion: '#d55e00' # 213 94 0
+    orange: '#e69f00' # 230 159 0
+    yellow: '#f0e442' # 240 228 66
+  13COLORBLIND:
+    # 13-color palette for colorblindness + white
+    # http://mkweb.bcgsc.ca/colorblind/
+    white: '#ffffff'
+    black: '#000000'
+    teal_blue: '#006E82'
+    purple: '#8214A0'
+    blue: '#005AC8'
+    azure: '#00A0FA'
+    pink: '#FA78FA'
+    aqua: '#14D2DC'
+    raspberry: '#AA0A3C'
+    green: '#0A9B4B'
+    vermillion: '#FF825F'
+    yellow: '#EAD644'
+    light_green: '#A0FA82'
+    banana_mania: '#FAE6BE'
+  MODIFY_ME:
+    # Pick a name and define new colors
+    black: '#000000'
+    white: '#FFFFFF'
+    red: '#FF0000'
+    green: '#00FF00'
+    blue: '#0000FF'
+
+
+## THEMES DEFINITION ##
+
+THEMES:
+#  # Syntax
+#  THEME_NAME:    # unique name to refer to the theme
+#    palette:     # PALETTE_NAME (color names are converted using this)
+#    figure:      # main background of the figures
+#    background:  # plot background
+#    hovered_background: # plot background when hovered
+#    border:      # plot borders
+#    data:        # data points/time series
+#    markers:     # markers on features plot
+#    events:      # vertical lines at given dates (e.g. jumps)
+#    text:        # station name
+#    highlight:   # selected station
+#    category:    # categories COLOR THEME (defined hereafter)
+#    # Cartopy map
+#    stations:    # stations on the map
+#    continent:   # continent color
+#    ocean:       # oceans color
+#  UNCOMMENT_AND_MODIFY_ME:
+#    # Your first custom theme
+#    palette: PYGODA
+#    figure: 
+#    background: 
+#    hovered_background: 
+#    border: 
+#    data: 
+#    markers: 
+#    events: 
+#    text: 
+#    highlight: 
+#    category: 'Default dark'
+#    stations: 
+#    continent: 
+#    ocean: 
+
+
+## CATEGORIES THEMES DEFINITION ##
+
+# Colors used to display the different categories
+CATEGORIES_THEMES:
+#  # Syntax
+#  THEME_NAME:   # unique name to refer to the theme
+#    palette:    # PALETTE_NAME (color names are converted using this palette)
+#    CAT_CODE1:  # color name for the category CAT_CODE1
+#    CAT_CODE2:  # color name for the category CAT_CODE2
+#    # etc.
+  DEFAULT:
+    # Default category colors
+    palette: 13COLORBLIND
+    CAT_BAD: vermillion
+    # CAT_NEUTRAL: # uses the color in 'data' by default
+    CAT_GOOD: azure
+    CAT_1: light_green
+    CAT_2: pink
+    CAT_3: banana_mania
+    CAT_4: aqua
+    CAT_5: green
+    CAT_6: blue
+    CAT_7: raspberry
+    CAT_8: teal_blue
+    CAT_9: purple
+  Default dark:
+    palette: PYGODA 
+    CAT_GOOD: sky_blue
+    CAT_BAD: orange
+  Default light:
+    palette: PYGODA
+    CAT_GOOD: black
+    CAT_BAD: tangerine
+
+
+## DATA PLOTS ##
+
+# Here we define the look of all the plots depending on
+# the station category and state (default, hovered or selected).
+CATEGORIES:
+#  # Syntax
+#  CAT_CODE:                   # category as defined in config file
+#                              # (or CAT_GENERIC once CAT_NEUTRAL is defined)
+#    STATE:                    # one of DEFAULT, HOVERED, SELECTED
+#      plot:                   # everything related to data plots
+#        ax_color:             # background color of the plot
+#        ax_spines_color:      # spines color
+#        ax_spines_width:      # spines width (integer)
+#        data_color:           # color of the data points
+#        station_name_color:   # color of the text displaying the station name
+#        events_color:         # color of the vertical lines for events
+#      map:                    # everything related to stations on the map
+#        stations_color:         # color of the stations on the map
+#        stations_shape:         # shape of the markers (see Matplotlib doc)
+#        stations_size:          # size of the markers
+# Note: missing values in states HOVERED and SELECTED are taken from DEFAULT.
+# You can use 'CAT_COLOR' to refer to the *current category* color.
+# /!\ Do NOT use CAT_COLOR in CAT_NEUTRAL, it is undefined here.
+
+  CAT_NEUTRAL:
+    DEFAULT:
+      # All these parameters *must* be defined here in CAT_NEUTRAL.DEFAULT
+      plot:
+        ax_color: background
+        ax_spines_color: border
+        ax_spines_width: 1
+        data_color: data
+        markers_color: markers
+        station_name_color: text
+        events_color: events
+      map:
+        stations_color: stations
+        stations_shape: 'o'
+        stations_size: 3
+    HOVERED:
+      plot:
+        ax_spines_color: data
+        ax_color: hovered_background
+      map:
+        stations_shape: 'P'
+        stations_size: 5
+    SELECTED:
+      # Reverse the colors and highlight the background and text
+      plot:
+        ax_color: data
+        data_color: background
+        station_name_color: background
+      map:
+        stations_color: highlight
+        stations_shape: 'X'
+        stations_size: 5
+
+# For other categories, missing values in DEFAULT are taken from CAT_NEUTRAL.
+# Missing values in HOVERED/SELECTED are then taken from completed DEFAULT.
+
+  CAT_GENERIC: # Used for all categories not defined hereafter
+    DEFAULT:
+      plot:
+        data_color: CAT_COLOR
+        station_name_color: CAT_COLOR
+      map:
+        stations_color: CAT_COLOR
+    HOVERED:
+      plot:
+        ax_color: hovered_background
+        ax_spines_color: CAT_COLOR
+        data_color: CAT_COLOR
+        station_name_color: CAT_COLOR
+    SELECTED:
+      # Reverse the colors but use default background for data
+      plot:
+        ax_color: CAT_COLOR
+        data_color: background
+
+
+## MAP ##
+
+MAP:
+  # theme: 'Default light' # Uncomment to apply a different theme to the map.
+  continent_color: continent 
+  ocean_color: ocean
+

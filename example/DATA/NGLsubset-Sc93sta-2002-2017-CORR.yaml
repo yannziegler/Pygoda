@@ -1,0 +1,61 @@
+# Data description for:
+# NGLsubset-Sc93sta-2002-2017-CORR.hdf5
+
+FILE_TYPE: BINARY
+DATA_TYPE: HDF5
+DATA_SPEC: GLOBALMASS_GPS
+VERSION: 1.0
+
+# Mapping between the input and Pygoda metadata/data
+MAPPING:
+  LONGITUDE: lon # mandatory
+  LATITUDE: lat # mandatory
+  ELEVATION: h
+  TIME: t # for time series
+  # POSITION: # for profiles
+
+# .attrs field in HDF5
+ATTRIBUTES:
+  lon:
+    name: "Longitude"
+    unit: deg
+    #range: "]-180, 180]"
+    accuracy: 1e-2
+  lat:
+    name: "Latitude"
+    unit: deg
+    #range: "[-90, 900]"
+    accuracy: 1e-2
+  h:
+    name: "Elevation"
+    unit: m
+    accuracy: 1e-3
+
+# Variable if unique, otherwise described in COMPONENTS.xxx.variable:
+VARIABLES:
+  t:
+    name: "Time vector for GPS"
+    missing: None # placeholder value (NaN, 9999.999, etc.) or None if missing
+    unit: yr
+    step: 0.0027379
+    # convert: # Python datetime format
+
+# Time series
+COMPONENTS:
+  Z:
+    name: "Vertical land motion"
+    unit: mm
+    accuracy: 1e-2
+    std: stdZ
+    events:
+      - jumps
+    merge_events: true
+
+# Events occuring at specific time (time series) or position (profiles)
+EVENTS:
+  jumps:
+    name: "Jumps dates"
+    comment: "Ordered, unique, dates of jumps"
+ 
+
+

@@ -1,0 +1,55 @@
+# Pygoda project file
+
+name: EXAMPLE_GPS_GM_Scandinavia
+fullname: 'Toy example for Pygoda (GPS from GlobalMass project)'
+description: ''
+
+# All paths not starting with '/' will be relative to 'basedir'
+basedir: '../example/DATA/'
+
+DATA:
+  path: NGLsubset-Sc93sta-2002-2017-CORR.hdf5
+  descriptor: NGLsubset-Sc93sta-2002-2017-CORR.yaml
+  #stations_list: Scandinavia-93sta.txt
+  nsta_max: 93
+
+## Everything below that line is optional and managed like in any other config
+## or theme files.
+
+# Other files used to configure this project
+CONFIG:
+  config: 'gps_config.yaml'
+
+# Other files used to configure this project
+theme: 'Default dark'
+
+## Performances customization
+PERFORMANCES:
+  load_nsta: 60 # load this number of stations at startup
+  load_first_page: True # always load all the data for the first grid page
+  load_on_the_fly: True # load the data only when needed
+
+# Plot customization
+PLOT:
+  downsampling_rate: 1
+  downsampling_threshold: 1000
+  downsampling_method: naive
+  best_quality_on_hover: True
+  keep_best_quality: True
+
+# Grid customization
+GRID:
+  ncols: 5
+  nrows: 10
+  auto_advance: True
+
+# Map customization
+MAP:
+  projection: 'carree'
+  resolution: '10m'
+#  map_extent:
+#    min_lon: -130.5
+#    max_lon: -69.
+#    min_lat: 6.
+#    max_lat: 78.
+

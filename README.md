@@ -1,5 +1,7 @@
 # Pygoda
 
+[![DOI](https://zenodo.org/badge/545984137.svg)](https://zenodo.org/badge/latestdoi/545984137)
+
 A Python GUI to visualise and analyse efficiently large sets of geolocated time series.
 
 Developed and maintained by Yann Ziegler @ [University of Bristol](https://www.bristol.ac.uk/) (UK), [School of Geographical Sciences](https://www.bristol.ac.uk/geography/), [Bristol Glaciology Centre](https://www.bristol.ac.uk/geography/research/bgc/)

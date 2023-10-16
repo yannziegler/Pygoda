@@ -1,0 +1,6 @@
+# Pygoda projects file
+# /!\ Relative paths are relative to the working directory
+
+PROJECTS:
+  EXAMPLE_GPS_GM_Scandinavia:
+    basedir: '../example/DATA/' # Pygoda must be launched from the pygoda.py folder for this to work
