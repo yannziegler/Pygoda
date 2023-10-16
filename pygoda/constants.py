@@ -18,7 +18,7 @@ GITHUB = 'https://github.com/yannziegler/Pygoda'
 DEVELOP = True # develop, unstable version if True
 VERSION = '0.1.0-alpha' # last release if DEVELOP
 VERSION_URL = f'{GITHUB}/releases/tag/{VERSION}'
-DATE = '2023-10-10'
+DATE = '2023-10-16'
 
 QT_KEYS = {'ENTER': QtCore.Qt.Key_Enter,
            # 'ESC': QtCore.Qt.Key_Escape,
